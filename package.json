@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "file-saver": "^2.0.5",
+    "fs": "0.0.1-security",
     "next": "11.1.2",
+    "pdf-lib": "^1.17.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
