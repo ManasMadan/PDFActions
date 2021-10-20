@@ -88,7 +88,7 @@ export default function PDFButtons({
           }}
         >
           <div className="container">
-            <div class="row gy-3" style={{ padding: "50px 0px" }}>
+            <div class="row gy-3" style={{ padding: "2rem 0px" }}>
               <PDFList files={filesLocal} setFiles={setFilesLocal} />
             </div>
           </div>

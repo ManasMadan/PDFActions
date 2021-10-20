@@ -5,6 +5,9 @@ const mergePDF = async (files) => {
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
+    if (file.deleted) {
+      continue;
+    }
     const fileURL = URL.createObjectURL(file);
     const data = await fetch(fileURL);
     const fileArray = await data.arrayBuffer();

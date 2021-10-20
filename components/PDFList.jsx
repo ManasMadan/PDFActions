@@ -3,7 +3,7 @@ import {
   sortableElement,
   sortableHandle,
 } from "react-sortable-hoc";
-import styles from "../styles/index.module.css";
+import styles from "../styles/filelist.module.css";
 import FilePreview from "./FilePreview";
 
 //Drag handler
@@ -22,17 +22,9 @@ const DragHandle = sortableHandle(() => (
   </span>
 ));
 
-//Draggable elements
-const SortableItem = sortableElement(({ value }) => (
-  <div className={styles.dragElement}>
-    <FilePreview file={value} />
-    <DragHandle />
-  </div>
-));
-
 //Drag area
 const SortableContainer = sortableContainer(({ children }) => {
-  return <div className={styles.dragContainer}>{children}</div>;
+  return <div>{children}</div>;
 });
 
 const arrayMoveMutate = (array, from, to) => {
@@ -50,11 +42,37 @@ export default function PDFList({ files, setFiles }) {
     setFiles(arrayMove(files, oldIndex, newIndex));
   };
 
+  // Functions
+  const deleteFileHandler = (file) => {
+    const newFiles = files;
+    newFiles.forEach((fileNew) => {
+      if (fileNew == file) {
+        fileNew.deleted = true;
+      }
+    });
+    setFiles([...newFiles]);
+  };
+
+  //Draggable elements
+  const SortableItem = sortableElement(({ value }) => (
+    <div className={styles.dragElement}>
+      <DragHandle />
+      <FilePreview file={value} deleteFileHandler={deleteFileHandler} />
+    </div>
+  ));
+
+  let allDeleted = true;
   return (
     <SortableContainer onSortEnd={onSortEnd} useDragHandle>
-      {files.map((file, index) => (
-        <SortableItem key={`item-${index}`} index={index} value={file} />
-      ))}
+      {files.map((file, index) => {
+        if (!file.deleted) {
+          allDeleted = false;
+          return (
+            <SortableItem key={`item-${index}`} index={index} value={file} />
+          );
+        }
+      })}
+      {allDeleted && <h2>No Files</h2>}
     </SortableContainer>
   );
 }

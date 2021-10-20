@@ -1,21 +1,17 @@
-.dragContainer {
-  width: 90%;
-  margin: 0 auto;
-}
-
 .dragHandler {
-  padding: 1px 5px;
   color: #000;
   background: #ffffff;
   cursor: grab;
+  margin: 0px 10px;
 }
 
 .dragElement {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 8px;
   margin-bottom: 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 }
