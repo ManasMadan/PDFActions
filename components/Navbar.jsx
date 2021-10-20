@@ -15,7 +15,7 @@ export default function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <Link href="#">
-          <div className="navbar-brand">Navbar</div>
+          <div className="navbar-brand">PDFTools</div>
         </Link>
         <button
           className="navbar-toggler"
