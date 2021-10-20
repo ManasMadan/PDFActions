@@ -10,6 +10,7 @@ export default function Navbar() {
   const pdfToolsDropdownOptions = [
     ["Merge PDF", "merge"],
     ["Split PDF", "split"],
+    ["Rotate PDF", "rotate"],
   ];
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">

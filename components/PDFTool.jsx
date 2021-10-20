@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import downloadPDFArray from "../methods/downloadPDFArray";
-import mergePDF from "../methods/mergePDF";
 import PDFButtons from "./PDFButtons";
 
-export default function MergePDF({ files }) {
+export default function MergePDF({ files, method }) {
   const [filesLocal, setFilesLocal] = useState([]);
 
   useEffect(() => {
@@ -11,8 +9,7 @@ export default function MergePDF({ files }) {
   }, []);
 
   const downloadPDFHandler = async () => {
-    const pdfBytes = await mergePDF(filesLocal);
-    downloadPDFArray(pdfBytes);
+    await method(filesLocal);
   };
 
   return (

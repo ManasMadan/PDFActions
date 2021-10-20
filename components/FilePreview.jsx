@@ -1,6 +1,9 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 export default function FilePreview({ file, deleteFileHandler }) {
+  const router = useRouter();
+  file.degrees = 0;
   return (
     <div
       className="d-flex flex-wrap align-items-center"
@@ -34,6 +37,34 @@ export default function FilePreview({ file, deleteFileHandler }) {
           />
         </svg>
       </button>
+      {router.pathname.endsWith("rotate") && (
+        <div>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              file.degrees += 90;
+              if (file.degrees == 360) {
+                file.degrees = 0;
+              }
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-clockwise"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+              />
+              <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

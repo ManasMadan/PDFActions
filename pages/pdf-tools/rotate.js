@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader";
-import MergePDF from "../../components/PDFTool";
-import mergePDFHandler from "../../methods/mergePDF";
+import RotatePDF from "../../components/PDFTool";
+import rotatePDF from "../../methods/rotatePDF.js";
 
 export default function merge() {
   const [files, setFiles] = useState([]);
@@ -11,7 +11,7 @@ export default function merge() {
       {files.length === 0 ? (
         <FileUploader setFiles={setFiles} />
       ) : (
-        <MergePDF files={files} method={mergePDFHandler} />
+        <RotatePDF files={files} method={rotatePDF} />
       )}
     </div>
   );

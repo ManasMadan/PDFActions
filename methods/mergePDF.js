@@ -1,8 +1,19 @@
 import { PDFDocument } from "pdf-lib";
+import downloadPDFArray from "./downloadPDFArray";
 
 const mergePDF = async (files) => {
-  const mergedPdf = await PDFDocument.create();
+  let length = 0;
+  for (let i = 0; i < files.length; i++) {
+    if (!files[i].deleted) {
+      length++;
+    }
+  }
+  if (length < 2) {
+    alert("Add 2 or more files to merge");
+    return null;
+  }
 
+  const mergedPdf = await PDFDocument.create();
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
     if (file.deleted) {
@@ -24,4 +35,11 @@ const mergePDF = async (files) => {
   return mergedPdfFile;
 };
 
-export default mergePDF;
+const handler = async (files) => {
+  const pdfBytes = await mergePDF(files);
+  if (pdfBytes) {
+    downloadPDFArray(pdfBytes);
+  }
+};
+
+export default handler;
