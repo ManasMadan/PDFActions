@@ -5,13 +5,19 @@
   margin: 0px 10px;
 }
 
+.dragContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-rows: repeat(auto-fill, 200px);
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
 .dragElement {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  margin-bottom: 10px;
+  display: grid;
+  height: 200px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 10fr 5fr;
+  place-items: center;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
 }

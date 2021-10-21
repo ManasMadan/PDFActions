@@ -7,8 +7,8 @@ import styles from "../styles/filelist.module.css";
 import FilePreview from "./FilePreview";
 
 //Drag handler
-const DragHandle = sortableHandle(() => (
-  <span className={styles.dragHandler}>
+const DragHandle = sortableHandle(({ tabIndex }) => (
+  <span className={styles.dragHandler} tabIndex={tabIndex}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -24,7 +24,7 @@ const DragHandle = sortableHandle(() => (
 
 //Drag area
 const SortableContainer = sortableContainer(({ children }) => {
-  return <div>{children}</div>;
+  return <div className={styles.dragContainer}>{children}</div>;
 });
 
 const arrayMoveMutate = (array, from, to) => {
@@ -63,7 +63,7 @@ export default function PDFList({ files, setFiles }) {
 
   let allDeleted = true;
   return (
-    <SortableContainer onSortEnd={onSortEnd} useDragHandle>
+    <SortableContainer onSortEnd={onSortEnd} useDragHandle axis="xy">
       {files.map((file, index) => {
         if (!file.deleted) {
           allDeleted = false;

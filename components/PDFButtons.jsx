@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import PDFList from "./PDFList";
+import imageDataURLfromFile from "../methods/imageDataURLfromFile";
 
 export default function PDFButtons({
   filesLocal,
@@ -15,8 +16,15 @@ export default function PDFButtons({
         className="form-control d-none"
         accept=".pdf"
         ref={ref}
-        onChange={(e) => {
-          setFilesLocal([...filesLocal, ...e.target.files]);
+        onChange={async (e) => {
+          const temp = [];
+          for (let i = 0; i < e.target.files.length; i++) {
+            const file = e.target.files[i];
+            const res = await imageDataURLfromFile(file);
+            file.image = res;
+            temp.push(file);
+          }
+          setFilesLocal([...filesLocal, ...temp]);
           ref.current.value = "";
         }}
       />
