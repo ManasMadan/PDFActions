@@ -1,5 +1,6 @@
 import { PDFDocument } from "pdf-lib";
 import downloadPDFArray from "./downloadPDFArray";
+import { rotatePDF } from "./rotatePDF";
 
 const mergePDF = async (files) => {
   let length = 0;
@@ -19,11 +20,8 @@ const mergePDF = async (files) => {
     if (file.deleted) {
       continue;
     }
-    const fileURL = URL.createObjectURL(file);
-    const data = await fetch(fileURL);
-    const fileArray = await data.arrayBuffer();
 
-    const pdfToBeAdded = await PDFDocument.load(fileArray);
+    const pdfToBeAdded = await rotatePDF(file);
     const pages = await mergedPdf.copyPages(
       pdfToBeAdded,
       pdfToBeAdded.getPageIndices()
