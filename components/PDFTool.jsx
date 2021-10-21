@@ -20,8 +20,12 @@ export default function MergePDF({ files, method }) {
     myFunction();
   }, []);
 
-  const downloadPDFHandler = async () => {
+  const downloadPDFHandler = async (e) => {
+    e.target.innerText = "Processing Files....";
+    e.target.disabled = true;
     await method(filesLocal);
+    e.target.innerText = "Save and Download";
+    e.target.disabled = false;
   };
 
   return (

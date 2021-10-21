@@ -28,23 +28,28 @@ export default function PDFButtons({
           ref.current.value = "";
         }}
       />
-      <div class="row justify-content-md-center align-items-center">
-        <div class="col-sm-4 d-flex flex-column">
-          <button className="btn btn-danger my-2" onClick={downloadPDFHandler}>
+      <div className="row justify-content-md-center align-items-center">
+        <div className="col-sm-4 d-flex flex-column">
+          <button
+            className="btn btn-danger my-2"
+            onClick={(e) => {
+              downloadPDFHandler(e);
+            }}
+          >
             Save and Download
           </button>
           <button
-            class="btn btn-primary my-2"
+            className="btn btn-primary my-2"
             type="button"
             onClick={() => ref.current.click()}
           >
             Add File
           </button>
-          <div class="accordion" id="settings">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="pageSettings">
+          <div className="accordion" id="settings">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="pageSettings">
                 <button
-                  class="accordion-button collapsed"
+                  className="accordion-button collapsed"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#pageSetting"
@@ -56,17 +61,17 @@ export default function PDFButtons({
               </h2>
               <div
                 id="pageSetting"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="pageSettings"
                 data-bs-parent="#settings"
               >
-                <div class="accordion-body">Page Settings Goes Here</div>
+                <div className="accordion-body">Page Settings Goes Here</div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="marginSettings">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="marginSettings">
                 <button
-                  class="accordion-button"
+                  className="accordion-button"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#marginSetting"
@@ -78,17 +83,17 @@ export default function PDFButtons({
               </h2>
               <div
                 id="marginSetting"
-                class="accordion-collapse collapse"
+                className="accordion-collapse collapse"
                 aria-labelledby="marginSettings"
                 data-bs-parent="#settings"
               >
-                <div class="accordion-body">Margin Settings Goes Here</div>
+                <div className="accordion-body">Margin Settings Goes Here</div>
               </div>
             </div>
           </div>
         </div>
         <div
-          class="col-sm-8 my-3"
+          className="col-sm-8 my-3"
           style={{
             height: "50vh",
             overflowY: "scroll",
@@ -96,7 +101,7 @@ export default function PDFButtons({
           }}
         >
           <div className="container">
-            <div class="row gy-3" style={{ padding: "2rem 0px" }}>
+            <div className="row gy-3" style={{ padding: "2rem 0px" }}>
               <PDFList files={filesLocal} setFiles={setFilesLocal} />
             </div>
           </div>
