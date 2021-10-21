@@ -8,14 +8,14 @@
 .dragContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
-  grid-template-rows: repeat(auto-fill, 200px);
+  grid-template-rows: repeat(auto-fill, 250px);
   grid-gap: 1rem;
   justify-content: center;
 }
 
 .dragElement {
   display: grid;
-  height: 200px;
+  height: 250px;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 10fr 5fr;
   place-items: center;

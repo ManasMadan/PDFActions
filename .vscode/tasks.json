@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run",
+      "command": "npm run start",
+      "type": "shell"
+    },
+    {
+      "label": "Upload To Github",
+      "command": "git add .;git commit -m '${input:commitMessage}';git push origin master",
+      "type": "shell"
+    },
+    {
+      "label": "Amend To Last Commit",
+      "command": "git add .;git commit --amend;git push origin master -f",
+      "type": "shell"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "commitMessage",
+      "description": "Enter The Commit Message",
+      "type": "promptString"
+    }
+  ]
+}
