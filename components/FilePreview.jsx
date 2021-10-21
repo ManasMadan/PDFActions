@@ -1,9 +1,12 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function FilePreview({ file, deleteFileHandler }) {
-  file.degrees = 0;
   const ref = useRef();
-  let deg = 0;
+  let deg = file.degrees || 0;
+  useEffect(() => {
+    file.degrees = deg;
+    ref.current.style.transform = `rotate(${deg}deg)`;
+  }, []);
   return (
     <div
       style={{

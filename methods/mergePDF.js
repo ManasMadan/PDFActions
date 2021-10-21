@@ -36,7 +36,7 @@ const mergePDF = async (files) => {
 const handler = async (files) => {
   const pdfBytes = await mergePDF(files);
   if (pdfBytes) {
-    downloadPDFArray(pdfBytes);
+    downloadPDFArray(pdfBytes, "merged.pdf");
   }
 };
 
