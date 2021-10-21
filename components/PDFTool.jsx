@@ -9,6 +9,9 @@ export default function MergePDF({ files, method }) {
     const temp = [];
     const arr = Array.from(files);
     const myFunction = async () => {
+      const button = document.getElementById("addFileButton");
+      button.innerText = "Adding Files ...";
+      button.disabled = true;
       for (let i = 0; i < arr.length; i++) {
         const file = arr[i];
         const res = await imageDataURLfromFile(file);
@@ -16,6 +19,8 @@ export default function MergePDF({ files, method }) {
         temp.push(file);
       }
       setFilesLocal(temp);
+      button.innerText = "Add Files";
+      button.disabled = false;
     };
     myFunction();
   }, []);

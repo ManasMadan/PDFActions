@@ -17,6 +17,9 @@ export default function PDFButtons({
         accept=".pdf"
         ref={ref}
         onChange={async (e) => {
+          const button = document.getElementById("addFileButton");
+          button.innerText = "Adding Files ...";
+          button.disabled = true;
           const temp = [];
           for (let i = 0; i < e.target.files.length; i++) {
             const file = e.target.files[i];
@@ -26,6 +29,8 @@ export default function PDFButtons({
           }
           setFilesLocal([...filesLocal, ...temp]);
           ref.current.value = "";
+          button.innerText = "Add Files";
+          button.disabled = false;
         }}
       />
       <div className="row justify-content-md-center align-items-center">
@@ -41,9 +46,10 @@ export default function PDFButtons({
           <button
             className="btn btn-primary my-2"
             type="button"
+            id="addFileButton"
             onClick={() => ref.current.click()}
           >
-            Add File
+            Add Files
           </button>
           <div className="accordion" id="settings">
             <div className="accordion-item">

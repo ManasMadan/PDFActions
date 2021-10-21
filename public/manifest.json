@@ -1,6 +1,6 @@
 {
-  "name": "PDFTools - Merge, Split, Rotate, Remove Pages and Many More...",
-  "short_name": "PDF Tools",
+  "name": "PDFTools",
+  "short_name": "PDFTools",
   "theme_color": "#ffffff",
   "background_color": "#004740",
   "display": "fullscreen",
