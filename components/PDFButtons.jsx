@@ -25,7 +25,8 @@ export default function PDFButtons({
           for (let i = 0; i < e.target.files.length; i++) {
             const file = e.target.files[i];
             const res = await imageDataURLfromFile(file);
-            file.image = res;
+            file.image = res.data;
+            file.pages = res.pageCount;
             temp.push(file);
           }
           setFilesLocal([...filesLocal, ...temp]);

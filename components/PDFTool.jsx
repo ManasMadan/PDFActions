@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PDFButtons from "./PDFButtons";
 import imageDataURLfromFile from "../methods/imageDataURLfromFile";
 
-export default function MergePDF({ files, method, multiple }) {
+export default function PDFTool({ files, method, multiple }) {
   const [filesLocal, setFilesLocal] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,8 @@ export default function MergePDF({ files, method, multiple }) {
       for (let i = 0; i < arr.length; i++) {
         const file = arr[i];
         const res = await imageDataURLfromFile(file);
-        file.image = res;
+        file.image = res.data;
+        file.pages = res.pageCount;
         temp.push(file);
       }
       setFilesLocal(temp);

@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   sortableContainer,
   sortableElement,
@@ -5,6 +6,7 @@ import {
 } from "react-sortable-hoc";
 import styles from "../styles/filelist.module.css";
 import FilePreview from "./FilePreview";
+import FilePreview2 from "./FilePreview2";
 
 //Drag handler
 const DragHandle = sortableHandle(({ tabIndex }) => (
@@ -38,6 +40,9 @@ const arrayMove = (array, from, to) => {
 };
 
 export default function PDFList({ files, setFiles }) {
+  const router = useRouter();
+  const path = router.pathname.split("/").reverse()[0];
+
   const onSortEnd = ({ oldIndex, newIndex }) => {
     setFiles(arrayMove(files, oldIndex, newIndex));
   };
@@ -54,12 +59,19 @@ export default function PDFList({ files, setFiles }) {
   };
 
   //Draggable elements
-  const SortableItem = sortableElement(({ value }) => (
-    <div className={styles.dragElement}>
-      <DragHandle />
-      <FilePreview file={value} deleteFileHandler={deleteFileHandler} />
-    </div>
-  ));
+  const SortableItem = sortableElement(({ value }) => {
+    return path === "split" ? (
+      <div className={styles.dragElement2}>
+        <DragHandle />
+        <FilePreview2 file={value} deleteFileHandler={deleteFileHandler} />
+      </div>
+    ) : (
+      <div className={styles.dragElement}>
+        <DragHandle />
+        <FilePreview file={value} deleteFileHandler={deleteFileHandler} />
+      </div>
+    );
+  });
 
   let allDeleted = true;
   return (
