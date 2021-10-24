@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PDFButtons from "./PDFButtons";
 import imageDataURLfromFile from "../methods/imageDataURLfromFile";
 
-export default function MergePDF({ files, method }) {
+export default function MergePDF({ files, method, multiple }) {
   const [filesLocal, setFilesLocal] = useState([]);
 
   useEffect(() => {
@@ -39,6 +39,7 @@ export default function MergePDF({ files, method }) {
         filesLocal={filesLocal}
         setFilesLocal={setFilesLocal}
         downloadPDFHandler={downloadPDFHandler}
+        multiple={multiple}
       />
     </div>
   );

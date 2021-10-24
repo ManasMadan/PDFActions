@@ -6,13 +6,14 @@ export default function PDFButtons({
   filesLocal,
   setFilesLocal,
   downloadPDFHandler,
+  multiple,
 }) {
   const ref = useRef();
   return (
     <div className="container-fluid">
       <input
         type="file"
-        multiple
+        multiple={multiple}
         className="form-control d-none"
         accept=".pdf"
         ref={ref}
