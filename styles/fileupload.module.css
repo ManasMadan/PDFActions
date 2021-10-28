@@ -1,0 +1,31 @@
+.dropFileInput {
+  position: relative;
+  width: 70vw;
+  height: 70vh;
+  border: 2px dashed black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(254, 255, 247);
+}
+
+.dropFileInput input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.dropFileInput:hover,
+.dropFileInput.dragover {
+  opacity: 0.6;
+}
+
+.dropFileInput__label {
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
+}
