@@ -1,8 +1,23 @@
+import { useEffect, useRef } from "react";
 import "../styles/globals.css";
 import Navbar from "../components/Navbar";
 import Head from "next/head";
+import LoadingBar from "react-top-loading-bar";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
+  const loadingRef = useRef(null);
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeStart", () =>
+      loadingRef.current.continuousStart()
+    );
+    router.events.on("routeChangeComplete", () =>
+      loadingRef.current.complete()
+    );
+    router.events.on("routeChangeError", () => loadingRef.current.complete());
+  }, []);
+
   return (
     <>
       <Head>
@@ -94,6 +109,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Navbar />
+      <LoadingBar ref={loadingRef} />;
       <Component {...pageProps} />
     </>
   );

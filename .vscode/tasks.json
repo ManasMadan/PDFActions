@@ -12,11 +12,6 @@
       "type": "shell"
     },
     {
-      "label": "Amend To Last Commit",
-      "command": "git add .;git commit --amend;git push origin master -f",
-      "type": "shell"
-    },
-    {
       "label": "Build",
       "command": "npm run build; npm run export",
       "type": "shell"
