@@ -29,7 +29,8 @@ export default function PDFTool({ files, method, multiple }) {
   const downloadPDFHandler = async (e) => {
     e.target.innerText = "Processing Files....";
     e.target.disabled = true;
-    await method(filesLocal);
+    const filteredFiles = filesLocal.filter((file) => !file.deleted);
+    await method(filteredFiles);
     e.target.innerText = "Save and Download";
     e.target.disabled = false;
   };

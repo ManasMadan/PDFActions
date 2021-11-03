@@ -1,37 +1,16 @@
-import { degrees, PDFDocument } from "pdf-lib";
-import { saveAs } from "file-saver";
-import JSZip from "jszip";
+import { createPDF, JSZip, rotatePDF, zipToBlob } from "pdf-actions";
 
-export const rotatePDF = async (file) => {
-  const fileURL = URL.createObjectURL(file);
-  const data = await fetch(fileURL);
-  const fileArray = await data.arrayBuffer();
-
-  const pdfDoc = await PDFDocument.load(fileArray);
-  const pages = pdfDoc.getPages();
-
-  pages.forEach((page) => {
-    page.setRotation(degrees(file.degrees));
-  });
-
-  return pdfDoc;
-};
-
-const handler = async (files) => {
+const rotatePDFHandler = async (files) => {
   const zip = new JSZip();
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
-    if (file.deleted) {
-      continue;
-    }
-
-    const pdfDoc = await rotatePDF(file);
-    const pdfFile = await pdfDoc.save();
-    zip.file(`rotated-${file.name}`, pdfFile);
+    const pdfDoc = await createPDF.PDFDocumentFromFile(file);
+    zip.file(
+      `rotated-${file.name}`,
+      await (await rotatePDF(pdfDoc, file.degrees)).save()
+    );
   }
-  await zip.generateAsync({ type: "blob" }).then(function (content) {
-    saveAs(content, "rotatedPDFFiles.zip");
-  });
+  saveAs(await zipToBlob(zip), "rotatedPDFFiles.zip");
 };
 
-export default handler;
+export default rotatePDFHandler;
