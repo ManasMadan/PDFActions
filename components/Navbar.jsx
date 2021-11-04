@@ -15,8 +15,8 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <Link href="#">
-          <div className="navbar-brand">PDFTools</div>
+        <Link href="/">
+          <div className="navbar-brand">PDFActions</div>
         </Link>
         <button
           className="navbar-toggler"
