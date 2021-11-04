@@ -4,9 +4,9 @@ import {
   sortableElement,
   sortableHandle,
 } from "react-sortable-hoc";
-import styles from "../styles/filelist.module.css";
-import FilePreview from "./FilePreview";
-import FilePreview2 from "./FilePreview2";
+import styles from "../../styles/filelist.module.css";
+import FilePreview from "../FilePreview/FilePreview";
+import FilePreview2 from "../FilePreview/FilePreview2";
 
 //Drag handler
 const DragHandle = sortableHandle(({ tabIndex }) => (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader";
-import MergePDF from "../../components/PDFTool";
+import MergePDF from "../../components/PDF/PDFTool";
 import mergePDFHandler from "../../methods/mergePDF";
 
 export default function merge() {

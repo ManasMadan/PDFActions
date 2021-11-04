@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import PDFList from "./PDFList";
-import imageDataURLfromFile from "../methods/imageDataURLfromFile";
+import imageDataURLfromFile from "../../methods/imageDataURLfromFile";
 
 export default function PDFButtons({
   filesLocal,

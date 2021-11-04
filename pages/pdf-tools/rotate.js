@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader";
-import RotatePDF from "../../components/PDFTool";
+import RotatePDF from "../../components/PDF/PDFTool";
 import rotatePDF from "../../methods/rotatePDF.js";
 
 export default function merge() {

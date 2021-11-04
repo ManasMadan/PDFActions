@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PDFButtons from "./PDFButtons";
-import imageDataURLfromFile from "../methods/imageDataURLfromFile";
+import imageDataURLfromFile from "../../methods/imageDataURLfromFile";
 
 export default function PDFTool({ files, method, multiple }) {
   const [filesLocal, setFilesLocal] = useState([]);
