@@ -18,9 +18,14 @@ export default function PDFButtons({
         accept=".pdf"
         ref={ref}
         onChange={async (e) => {
-          const button = document.getElementById("addFileButton");
-          button.innerText = "Adding Files ...";
-          button.disabled = true;
+          const addFileButton = document.getElementById("addFileButton");
+          const processFileButton =
+            document.querySelectorAll("#processFileButton");
+
+          addFileButton.innerText = "Adding Files ...";
+          addFileButton.disabled = true;
+          processFileButton.forEach((btn) => (btn.disabled = true));
+
           const temp = [];
           for (let i = 0; i < e.target.files.length; i++) {
             const file = e.target.files[i];
@@ -31,20 +36,34 @@ export default function PDFButtons({
           }
           setFilesLocal([...filesLocal, ...temp]);
           ref.current.value = "";
-          button.innerText = "Add Files";
-          button.disabled = false;
+          addFileButton.innerText = "Add Files";
+          addFileButton.disabled = false;
+          processFileButton.forEach((btn) => (btn.disabled = false));
         }}
       />
       <div className="row justify-content-md-center align-items-center">
         <div className="col-sm-4 d-flex flex-column">
-          <button
-            className="btn btn-danger my-2"
-            onClick={(e) => {
-              downloadPDFHandler(e);
-            }}
-          >
-            Save and Download
-          </button>
+          <div className="row-sm-4 d-flex flex-row align-items-center justify-content-center">
+            <button
+              id="processFileButton"
+              className="btn btn-danger my-2 mx-1"
+              onClick={(e) => {
+                downloadPDFHandler(e);
+              }}
+            >
+              Save and Download
+            </button>
+            <button
+              id="processFileButton"
+              className="btn btn-danger my-2 mx-1"
+              onClick={(e) => {
+                downloadPDFHandler(e);
+              }}
+            >
+              Or Share A Link To The File
+            </button>
+          </div>
+
           <button
             className="btn btn-primary my-2"
             type="button"

@@ -9,9 +9,12 @@ export default function PDFTool({ files, method, multiple }) {
     const temp = [];
     const arr = Array.from(files);
     const myFunction = async () => {
-      const button = document.getElementById("addFileButton");
-      button.innerText = "Adding Files ...";
-      button.disabled = true;
+      const addFileButton = document.getElementById("addFileButton");
+      const processFileButton = document.querySelectorAll("#processFileButton");
+      addFileButton.innerText = "Adding Files ...";
+      addFileButton.disabled = true;
+      processFileButton.forEach((btn) => (btn.disabled = true));
+
       for (let i = 0; i < arr.length; i++) {
         const file = arr[i];
         const res = await imageDataURLfromFile(file);
@@ -20,8 +23,9 @@ export default function PDFTool({ files, method, multiple }) {
         temp.push(file);
       }
       setFilesLocal(temp);
-      button.innerText = "Add Files";
-      button.disabled = false;
+      addFileButton.innerText = "Add Files";
+      addFileButton.disabled = false;
+      processFileButton.forEach((btn) => (btn.disabled = false));
     };
     myFunction();
   }, []);
