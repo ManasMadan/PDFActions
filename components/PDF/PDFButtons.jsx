@@ -43,26 +43,15 @@ export default function PDFButtons({
       />
       <div className="row justify-content-md-center align-items-center">
         <div className="col-sm-4 d-flex flex-column">
-          <div className="row-sm-4 d-flex flex-row align-items-center justify-content-center">
-            <button
-              id="processFileButton"
-              className="btn btn-danger my-2 mx-1"
-              onClick={(e) => {
-                downloadPDFHandler(e);
-              }}
-            >
-              Save and Download
-            </button>
-            <button
-              id="processFileButton"
-              className="btn btn-danger my-2 mx-1"
-              onClick={(e) => {
-                downloadPDFHandler(e);
-              }}
-            >
-              Or Share A Link To The File
-            </button>
-          </div>
+          <button
+            id="processFileButton"
+            className="btn btn-danger my-2 mx-1"
+            onClick={(e) => {
+              downloadPDFHandler(e);
+            }}
+          >
+            Save and Download
+          </button>
 
           <button
             className="btn btn-primary my-2"

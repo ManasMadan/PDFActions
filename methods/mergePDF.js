@@ -1,4 +1,5 @@
-import { createPDF, rotatePDF, downloadPDFArray, mergePDF } from "pdf-actions";
+import { createPDF, rotatePDF, pdfArrayToBlob, mergePDF } from "pdf-actions";
+import { saveAs } from "file-saver";
 
 const mergePDFHandler = async (files) => {
   const pdfDocs = [];
@@ -9,7 +10,8 @@ const mergePDFHandler = async (files) => {
     pdfDocs.push(pdfToBeAdded);
   }
   const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
-  downloadPDFArray(mergedPdfFile, "merged.pdf");
+  const pdfBlob = pdfArrayToBlob(mergedPdfFile);
+  saveAs(pdfBlob, "merged.pdf");
 };
 
 export default mergePDFHandler;

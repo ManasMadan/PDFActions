@@ -1,4 +1,6 @@
-import { createPDF, splitPDF, JSZip } from "pdf-actions";
+import { createPDF, splitPDF, zipToBlob } from "pdf-actions";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
 
 const splitPDFHandler = async (files) => {
   const zip = new JSZip();
@@ -11,9 +13,8 @@ const splitPDFHandler = async (files) => {
     ).save();
     zip.file(`split-${file.name}`, pdfFile);
   }
-  await zip.generateAsync({ type: "blob" }).then(function (content) {
-    saveAs(content, "splitPDFFiles.zip");
-  });
+  const zipBlob = zipToBlob(zip);
+  saveAs(zipToBlob, "splittedPDFFiles.zip");
 };
 
 export default splitPDFHandler;

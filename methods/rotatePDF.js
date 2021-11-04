@@ -1,4 +1,6 @@
-import { createPDF, JSZip, rotatePDF, zipToBlob } from "pdf-actions";
+import { createPDF, rotatePDF, zipToBlob } from "pdf-actions";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
 
 const rotatePDFHandler = async (files) => {
   const zip = new JSZip();
