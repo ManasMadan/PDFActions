@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
-import LeftSideBox from "./LeftSideBox.jsx";
-import FilePreviewGrid from "./FilePreviewGrid.jsx";
+import React, { useRef } from "react";
+import LeftSideBox from "./LeftSideBox";
+import FilePreviewGrid from "./FilePreviewGrid";
 import imageDataURLFromFile from "../methods/imageDataURLfromFile";
 
 export default function PDFProcess({
@@ -55,7 +55,7 @@ export default function PDFProcess({
 
       {/* PDF Box */}
 
-      <div className="px-12 py-6 md:px-24 md:py-12 flex flex-col items-center md:items-start">
+      <div className="px-4 py-6 md:px-24 md:py-12 flex flex-col items-center md:items-start">
         {/* Download Button */}
         <button
           className="md:w-1/3 w-full bg-amber-200 px-8 py-4 rounded-sm text-xl"

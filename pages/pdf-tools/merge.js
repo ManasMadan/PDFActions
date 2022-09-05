@@ -3,8 +3,11 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFProcess from "../../components/pdfprocess.jsx";
 
-export default function merge({ loadingBarRef }) {
+export default function merge() {
   const [files, setFiles] = useState([]);
+  const FilePreviewExtra = ({ file }) => {
+    return <div>FilePreviewExtra</div>;
+  };
 
   return (
     <>
@@ -28,7 +31,7 @@ export default function merge({ loadingBarRef }) {
             description: "Merge PDF Files Together",
           }}
           LeftSideBoxExtra={null}
-          FilePreviewExtra={null}
+          FilePreviewExtra={FilePreviewExtra}
         />
       )}
     </>
