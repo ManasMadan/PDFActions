@@ -1,0 +1,46 @@
+.hamburger_icon {
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  cursor: pointer;
+}
+
+.hamburger_icon span {
+  background: #fff;
+  border-radius: 10px;
+  height: 4px;
+  margin: 4px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.hamburger_icon span:nth-of-type(1) {
+  width: 50%;
+}
+
+.hamburger_icon span:nth-of-type(2) {
+  width: 100%;
+}
+
+.hamburger_icon span:nth-of-type(3) {
+  width: 75%;
+}
+
+.hamburger_icon input[type="checkbox"] {
+  display: none;
+}
+
+.hamburger_icon input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(5px, 0px);
+}
+
+.hamburger_icon input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+.hamburger_icon input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(18px, -6px) rotatez(45deg);
+}

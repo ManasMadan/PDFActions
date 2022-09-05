@@ -1,7 +1,6 @@
-.nav-item,
-.navbar-brand {
-  cursor: pointer;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .col-sm-8::-webkit-scrollbar {
   display: none;
