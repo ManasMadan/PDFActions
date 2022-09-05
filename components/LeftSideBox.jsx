@@ -1,8 +1,7 @@
 import React from "react";
-import styles from "../styles/fileprocess.module.css";
+import styles from "../styles/pdfprocess.module.css";
 
-export default function LeftSideBox({ children, addFileButtonRef }) {
-  const handleClick = () => addFileButtonRef.current.click();
+export default function LeftSideBox({ children, handleAddFileButtonClick }) {
   const handleResetClick = () => {};
   const handleRotateLeftClick = () => {};
   const handleRotateRightClick = () => {};
@@ -11,7 +10,7 @@ export default function LeftSideBox({ children, addFileButtonRef }) {
     <div className="flex flex-col w-full md:w-1/3 md:mr-2">
       <button
         className="px-4 py-2 w-full bg-amber-200 rounded-sm text-md"
-        onClick={handleClick}
+        onClick={handleAddFileButtonClick}
       >
         Add File(s)
       </button>

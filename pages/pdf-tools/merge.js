@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import FileProcess from "../../components/FileProcess.jsx";
-import LeftSideBox from "../../components/LeftSideBox.jsx";
-import FilePreview from "../../components/FilePreview.jsx";
+import PDFProcess from "../../components/pdfprocess.jsx";
 
-export default function merge() {
+export default function merge({ loadingBarRef }) {
   const [files, setFiles] = useState([]);
 
   return (
@@ -18,17 +16,19 @@ export default function merge() {
         <FileUploader setFiles={setFiles} fileType=".pdf" multiple={true} />
       )}
       {files.length !== 0 && (
-        <FileProcess
-          bannerText="Merge PDF"
-          bannerDescription="Merge PDF Files Together"
+        <PDFProcess
           files={files}
-          LeftSideBox={LeftSideBox}
-          FilePreview={FilePreview}
+          setFiles={setFiles}
           addFileOptions={{
-            setFiles: setFiles,
             fileType: ".pdf",
             multiple: true,
           }}
+          banner={{
+            text: "Merge PDF",
+            description: "Merge PDF Files Together",
+          }}
+          LeftSideBoxExtra={null}
+          FilePreviewExtra={null}
         />
       )}
     </>

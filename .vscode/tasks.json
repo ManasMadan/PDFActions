@@ -12,6 +12,11 @@
       "type": "shell"
     },
     {
+      "label": "Commit To Git",
+      "command": "git add .;git commit -m '${input:commitMessage}';",
+      "type": "shell"
+    },
+    {
       "label": "Build",
       "command": "npm run build; npm run export",
       "type": "shell"

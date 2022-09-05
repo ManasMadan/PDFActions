@@ -1,26 +1,37 @@
-import React, { useRef } from "react";
-import SortableList, { SortableItem } from "react-easy-sort";
-import arrayMove from "array-move";
+import React, { useRef, useState } from "react";
+import LeftSideBox from "./LeftSideBox.jsx";
+import FilePreviewGrid from "./FilePreviewGrid.jsx";
 import imageDataURLFromFile from "../methods/imageDataURLfromFile";
 
-export default function FileProcess({
-  bannerText,
-  bannerDescription,
-  addFileOptions,
+export default function PDFProcess({
   files,
+  setFiles,
+  banner,
+  addFileOptions,
   downloadHandler,
-  LeftSideBox,
   LeftSideBoxExtra,
-  FilePreview,
   FilePreviewExtra,
 }) {
-  const addFileButtonRef = useRef(null);
+  const inputButtonRef = useRef(null);
 
-  const onFileChange = (e) =>
-    addFileOptions.setFiles([...files, ...e.target.files]);
+  const handleAddFileButtonClick = () => {
+    inputButtonRef.current.click();
+  };
 
-  const onSortEnd = (oldIndex, newIndex) =>
-    addFileOptions.setFiles(arrayMove(files, oldIndex, newIndex));
+  const onFileChange = async (e) => {
+    const temp = [];
+    const newFiles = e.target.files;
+
+    for (var i = 0; i < newFiles.length; i++) {
+      const newFile = newFiles[i];
+      const data = await imageDataURLFromFile(newFile, 1);
+      newFile.image = data.image;
+      newFile.pageCount = data.pageCount;
+      temp.push(newFile);
+    }
+
+    setFiles([...files, ...temp]);
+  };
 
   return (
     <div className="overflow-x-hidden">
@@ -29,7 +40,7 @@ export default function FileProcess({
         type="file"
         className="hidden"
         accept={addFileOptions.fileType}
-        ref={addFileButtonRef}
+        ref={inputButtonRef}
         multiple={addFileOptions.multiple}
         onChange={(e) => onFileChange(e)}
       />
@@ -37,42 +48,36 @@ export default function FileProcess({
       {/* Banner */}
       <div className="bg-amber-200 border-gray-600 border-t-2 border-dotted text-gray-600 flex flex-col items-center justify-center h-[30vh] w-screen">
         <div className="text-4xl font-medium leading-normal tracking-wide">
-          {bannerText}
+          {banner.text}
         </div>
-        <div>{bannerDescription}</div>
+        <div>{banner.description}</div>
       </div>
 
+      {/* PDF Box */}
+
       <div className="px-12 py-6 md:px-24 md:py-12 flex flex-col items-center md:items-start">
+        {/* Download Button */}
         <button
           className="md:w-1/3 w-full bg-amber-200 px-8 py-4 rounded-sm text-xl"
           onClick={downloadHandler}
         >
           Save And Download
         </button>
+
+        {/* Box Below Download Button */}
         <div className="flex flex-col md:flex-row w-full justify-between mt-6">
           {/* Left Side Box */}
-          <LeftSideBox addFileButtonRef={addFileButtonRef}>
+          <LeftSideBox handleAddFileButtonClick={handleAddFileButtonClick}>
             {LeftSideBoxExtra && <LeftSideBoxExtra />}
           </LeftSideBox>
 
-          {/* Right Side Box = File Preview */}
-
+          {/* Right Side Box / File Preview */}
           <div className="w-full md:w-2/3 p-4 border-amber-200 border-2 border-dashed">
-            <SortableList
-              onSortEnd={onSortEnd}
-              className=""
-              draggedItemClassName="opacity-50"
-            >
-              {files.map((file, i) => (
-                <SortableItem key={i}>
-                  <div className="cursor-grab select-none">
-                    <FilePreview file={file}>
-                      {FilePreviewExtra && <FilePreviewExtra />}
-                    </FilePreview>
-                  </div>
-                </SortableItem>
-              ))}
-            </SortableList>
+            <FilePreviewGrid
+              files={files}
+              setFiles={setFiles}
+              FilePreviewExtra={FilePreviewExtra}
+            />
           </div>
         </div>
       </div>

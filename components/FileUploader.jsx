@@ -1,8 +1,22 @@
 import React, { useRef } from "react";
+import imageDataURLFromFile from "../methods/imageDataURLfromFile";
 
 export default function FileUploader({ setFiles, multiple, fileType }) {
   const inputRef = useRef(null);
-  const onFileChange = (e) => setFiles([...e.target.files]);
+  const onFileChange = async (e) => {
+    const temp = [];
+    const files = e.target.files;
+
+    for (var i = 0; i < files.length; i++) {
+      const file = files[i];
+      const data = await imageDataURLFromFile(file, 1);
+      file.image = data.image;
+      file.pageCount = data.pageCount;
+      temp.push(file);
+    }
+
+    setFiles(temp);
+  };
   const handleClick = () => inputRef.current.click();
 
   return (
