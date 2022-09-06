@@ -13,13 +13,16 @@ export default function FilePreviewGrid({ files, FilePreviewExtra, setFiles }) {
       className="flex flex-wrap place-content-center gap-2 md:gap-4"
       draggedItemClassName="opacity-50"
     >
-      {files.map((file, i) => (
-        <SortableItem key={i}>
-          <div className="cursor-grab select-none">
-            <FilePreview file={file} FilePreviewExtra={FilePreviewExtra} />
-          </div>
-        </SortableItem>
-      ))}
+      {files.map(
+        (file, i) =>
+          !file.deleted && (
+            <SortableItem key={i}>
+              <div className="cursor-grab select-none">
+                <FilePreview file={file} FilePreviewExtra={FilePreviewExtra} />
+              </div>
+            </SortableItem>
+          )
+      )}
     </SortableList>
   );
 }
