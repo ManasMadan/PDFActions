@@ -17,6 +17,11 @@
       "type": "shell"
     },
     {
+      "label": "Push Local Commits To Git",
+      "command": "git push origin master",
+      "type": "shell"
+    },
+    {
       "label": "Build",
       "command": "npm run build; npm run export",
       "type": "shell"

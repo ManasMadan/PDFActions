@@ -9,7 +9,10 @@ const mergePDFHandler = async (files) => {
       continue;
     }
     const pdfFile = await createPDF.PDFDocumentFromFile(file);
-    const pdfToBeAdded = await rotatePDF(pdfFile, file.degrees);
+    let pdfToBeAdded = pdfFile;
+    if (file.degrees) {
+      pdfToBeAdded = await rotatePDF(pdfFile, file.degrees);
+    }
     pdfDocs.push(pdfToBeAdded);
   }
   const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
