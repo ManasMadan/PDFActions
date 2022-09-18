@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function LeftSideBox({ children, handleAddFileButtonClick }) {
+export default function LeftSideBox({
+  children,
+  handleAddFileButtonClick,
+  handleDeleteFilesClick,
+}) {
   return (
     <div className="flex flex-col w-full md:w-1/3 md:mr-2">
       <button
@@ -10,6 +14,12 @@ export default function LeftSideBox({ children, handleAddFileButtonClick }) {
         Add File(s)
       </button>
       {children ? children : null}
+      <button
+        className="px-4 py-2 bg-amber-200 mt-2 rounded-sm tracking-wider"
+        onClick={handleDeleteFilesClick}
+      >
+        Delete All Files
+      </button>
     </div>
   );
 }

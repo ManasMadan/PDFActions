@@ -14,6 +14,9 @@ export default function PDFProcess({
 }) {
   const inputButtonRef = useRef(null);
 
+  const handleDeleteFilesClick = () => {
+    setFiles([{ deleted: true }]);
+  };
   const handleAddFileButtonClick = () => {
     inputButtonRef.current.click();
   };
@@ -67,7 +70,10 @@ export default function PDFProcess({
         {/* Box Below Download Button */}
         <div className="flex flex-col md:flex-row w-full justify-between mt-6">
           {/* Left Side Box */}
-          <LeftSideBox handleAddFileButtonClick={handleAddFileButtonClick}>
+          <LeftSideBox
+            handleAddFileButtonClick={handleAddFileButtonClick}
+            handleDeleteFilesClick={handleDeleteFilesClick}
+          >
             {LeftSideBoxExtra && <LeftSideBoxExtra />}
           </LeftSideBox>
 

@@ -7,7 +7,7 @@ const splitPDFHandler = async (files) => {
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
     const pdfDocument = await createPDF.PDFDocumentFromFile(file);
-    const split = await splitPDF(pdfDocument, file.range, {
+    const split = await splitPDF(pdfDocument, file.splitRange, {
       degree: file.degrees,
     });
     if (typeof split !== String) {
