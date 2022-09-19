@@ -6,6 +6,12 @@ const splitPDFHandler = async (files) => {
   const zip = new JSZip();
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
+    if (file.deleted) {
+      continue;
+    }
+    if (file.splitRange[0] > file.splitRange[1]) {
+      file.splitRange = [file.splitRange[1], file.splitRange[0]];
+    }
     const pdfDocument = await createPDF.PDFDocumentFromFile(file);
     const split = await splitPDF(pdfDocument, file.splitRange, {
       degree: file.degrees,

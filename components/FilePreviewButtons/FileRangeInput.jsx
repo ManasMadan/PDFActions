@@ -13,12 +13,22 @@ export default function FileRangeInput({ file }) {
   const onSplitRangeChange = () => {
     let start = parseInt(splitRangeStartRef.current.value);
     let end = parseInt(splitRangeEndRef.current.value);
-
-    if (start > end) {
-      start = end;
-      splitRangeStartRef.current.value = end;
+    if (start < 1) {
+      start = 1;
+      splitRangeStartRef.current.value = 1;
     }
-
+    if (end < 1) {
+      end = 1;
+      splitRangeEndRef.current.value = 1;
+    }
+    if (end > file.pageCount) {
+      end = file.pageCount;
+      splitRangeEndRef.current.value = file.pageCount;
+    }
+    if (start > file.pageCount) {
+      start = file.pageCount;
+      splitRangeStartRef.current.value = file.pageCount;
+    }
     file.splitRange = [start, end];
     splitRangeStartRef.current.max = min(file.pageCount, end);
   };
@@ -32,7 +42,6 @@ export default function FileRangeInput({ file }) {
         defaultValue="1"
         min="1"
         max={file.pageCount}
-        onKeyDown={(e) => e.preventDefault()}
         onChange={onSplitRangeChange}
       />
       <div className="text-sm">to</div>
@@ -43,7 +52,6 @@ export default function FileRangeInput({ file }) {
         defaultValue={file.pageCount}
         min="1"
         max={file.pageCount}
-        onKeyDown={(e) => e.preventDefault()}
         onChange={onSplitRangeChange}
       />
     </div>
