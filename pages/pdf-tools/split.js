@@ -22,7 +22,17 @@ export default function split() {
   };
 
   const LeftSideBoxExtra = () => {
-    return <LeftSideBoxRotation files={files} />;
+    return (
+      <>
+        <button
+          className="px-4 py-2 w-full bg-amber-200 rounded-sm text-md mt-2"
+          onClick={() => splitPDFHandler(files, false)}
+        >
+          Save as Individual Files
+        </button>
+        <LeftSideBoxRotation files={files} />
+      </>
+    );
   };
 
   return (
@@ -37,6 +47,7 @@ export default function split() {
       {files.length !== 0 && (
         <PDFProcess
           files={files}
+          sortableFilePreviewGrid={false}
           setFiles={setFiles}
           addFileOptions={{
             fileType: ".pdf",

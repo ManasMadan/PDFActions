@@ -6,6 +6,7 @@ import imageDataURLFromFile from "../methods/imageDataURLfromFile";
 export default function PDFProcess({
   files,
   setFiles,
+  sortableFilePreviewGrid,
   banner,
   addFileOptions,
   downloadHandler,
@@ -83,6 +84,7 @@ export default function PDFProcess({
               files={files}
               setFiles={setFiles}
               FilePreviewExtra={FilePreviewExtra}
+              sortableFilePreviewGrid={sortableFilePreviewGrid}
             />
           </div>
         </div>

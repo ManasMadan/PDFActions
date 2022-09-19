@@ -35,6 +35,7 @@ export default function merge() {
       {files.length !== 0 && (
         <PDFProcess
           files={files}
+          sortableFilePreviewGrid={true}
           setFiles={setFiles}
           addFileOptions={{
             fileType: ".pdf",

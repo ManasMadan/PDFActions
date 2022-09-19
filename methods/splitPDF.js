@@ -1,9 +1,12 @@
-import { createPDF, splitPDF, zipToBlob } from "pdf-actions";
+import { createPDF, splitPDF, zipToBlob, pdfArrayToBlob } from "pdf-actions";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 
-const splitPDFHandler = async (files) => {
-  const zip = new JSZip();
+const splitPDFHandler = async (files, asZip = true) => {
+  let zip;
+  if (asZip) {
+    zip = new JSZip();
+  }
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
     if (file.deleted) {
@@ -18,13 +21,20 @@ const splitPDFHandler = async (files) => {
     });
     if (typeof split !== String) {
       const pdfFile = await split.save();
-      zip.file(`split-${file.name}`, pdfFile);
+      if (asZip) {
+        zip.file(`split-${file.name}`, pdfFile);
+      } else {
+        const pdfBlob = pdfArrayToBlob(pdfFile);
+        saveAs(pdfBlob, `split-${file.name}`);
+      }
     } else {
       alert("Error In Split Ranges");
     }
   }
-  const zipBlob = await zipToBlob(zip);
-  saveAs(zipBlob, "splittedPDFFiles.zip");
+  if (asZip) {
+    const zipBlob = await zipToBlob(zip);
+    saveAs(zipBlob, "splittedPDFFiles.zip");
+  }
 };
 
 export default splitPDFHandler;
