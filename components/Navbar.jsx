@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import styles from "../styles/navbar.module.css";
 
 export default function Navbar() {
   const [hamburgerMenu, setHamburgerMenu] = useState(false);
+  const hamburgerMenuRef = useRef(null);
+
   const navOptions = [
     ["Merge PDF", "/pdf-tools/merge"],
     ["Split PDF", "/pdf-tools/split"],
@@ -13,6 +15,10 @@ export default function Navbar() {
 
   const handleHamburgerMenuIconClick = (e) => {
     setHamburgerMenu(e.target.checked);
+  };
+  const handleHamburgerMenuLinkClick = () => {
+    setHamburgerMenu(false);
+    hamburgerMenuRef.current.checked = false;
   };
 
   return (
@@ -33,12 +39,14 @@ export default function Navbar() {
             ))}
           </nav>
 
+          {/* Hamburger Menu */}
           <div className="md:hidden float-right z-50">
             <label htmlFor="check" className={styles.hamburger_icon}>
               <input
                 type="checkbox"
                 id="check"
                 onChange={handleHamburgerMenuIconClick}
+                ref={hamburgerMenuRef}
               />
               <span></span>
               <span></span>
@@ -47,6 +55,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+      {/* Mobile Menu */}
       <div
         className="md:hidden fixed top-[10vh] right-0 h-[90vh] w-[200px] bg-amber-200 transition-all pt-12 px-4 flex flex-col"
         style={{
@@ -56,12 +65,11 @@ export default function Navbar() {
         }}
       >
         {navOptions.map((navOption, i) => (
-          <span
-            key={i}
-            className="flex items-center hover:text-gray-900 border-b-2 h-12 border-neutral-300 transition-[border]"
-          >
-            <Link href={navOption[1]}>{navOption[0]}</Link>
-          </span>
+          <Link href={navOption[1]} key={i}>
+            <span className="flex items-center hover:text-gray-900 border-b-2 h-12 border-neutral-300 transition-[border]">
+              <div onClick={handleHamburgerMenuLinkClick}>{navOption[0]}</div>
+            </span>
+          </Link>
         ))}
       </div>
     </div>
