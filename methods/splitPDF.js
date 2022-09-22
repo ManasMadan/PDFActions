@@ -12,9 +12,6 @@ const splitPDFHandler = async (files, asZip = true) => {
     if (file.deleted) {
       continue;
     }
-    if (file.splitRange[0] > file.splitRange[1]) {
-      file.splitRange = [file.splitRange[1], file.splitRange[0]];
-    }
     const pdfDocument = await createPDF.PDFDocumentFromFile(file);
     const split = await splitPDF(pdfDocument, file.splitRange, {
       degree: file.degrees,
