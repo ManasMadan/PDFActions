@@ -13,9 +13,7 @@ const splitPDFHandler = async (files, asZip = true) => {
       continue;
     }
     const pdfDocument = await createPDF.PDFDocumentFromFile(file);
-    const split = await splitPDF(pdfDocument, file.splitRange, {
-      degree: file.degrees,
-    });
+    const split = await splitPDF(pdfDocument, file.splitRange, file.degrees);
     if (typeof split !== String) {
       const pdfFile = await split.save();
       if (asZip) {

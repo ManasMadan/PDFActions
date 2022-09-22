@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFProcess from "../../components/PDFProcess.jsx";
-import splitPDFHandler from "../../methods/splitPDF";
+import breakPDFHandler from "../../methods/breakPDF.js";
 import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateButtons.jsx";
-import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButton.jsx";
-import FileRangeInput from "../../components/FilePreviewButtons/FileRangeInput.jsx";
 import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
+import LeftSideBreakPDF from "../../components/LeftSideBoxButtons/LeftSideBreakPDF";
 
-export default function split() {
+export default function merge() {
   const [files, setFiles] = useState([]);
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {
     return (
       <div className="flex flex-col gap-2 items-center justify-center mt-2 mb-2">
         <FileRotateButtons file={file} imageRef={imageRef} />
-        <FileRangeInput file={file} />
-        <FileDeleteButton file={file} setDeleted={setDeleted} />
       </div>
     );
   };
@@ -25,11 +22,12 @@ export default function split() {
     return (
       <>
         <button
-          className="px-4 py-2 w-full bg-amber-200 rounded-sm text-md mt-2"
-          onClick={() => splitPDFHandler(files, false)}
+          className="px-4 py-2 w-full bg-amber-200 rounded-sm text-md"
+          onClick={() => breakPDFHandler(files, false)}
         >
           Save as Individual Files
         </button>
+        <LeftSideBreakPDF file={files[0]} />
         <LeftSideBoxRotation files={files} />
       </>
     );
@@ -38,19 +36,19 @@ export default function split() {
   return (
     <div className="overflow-x-hidden">
       <Head>
-        <title>PDFActions - Split PDF</title>
+        <title>PDFActions - Break PDF</title>
       </Head>
 
       {/* Banner */}
       <div className="bg-amber-200 border-gray-600 border-t-2 border-dotted text-gray-600 flex flex-col items-center justify-center h-[30vh] w-screen">
         <div className="text-4xl font-medium leading-normal tracking-wide">
-          Split PDF
+          Break PDF
         </div>
-        <div>Split Multiple PDF Files In on Go</div>
+        <div>Break Single PDF File into Multiple PDF's</div>
       </div>
 
       {files.length === 0 && (
-        <FileUploader setFiles={setFiles} fileType=".pdf" multiple={true} />
+        <FileUploader setFiles={setFiles} fileType=".pdf" multiple={false} />
       )}
       {files.length !== 0 && (
         <PDFProcess
@@ -59,13 +57,9 @@ export default function split() {
           setFiles={setFiles}
           addFileOptions={{
             fileType: ".pdf",
-            multiple: true,
+            multiple: false,
           }}
-          banner={{
-            text: "Split PDF",
-            description: "Split PDF Files In One Go",
-          }}
-          downloadHandler={() => splitPDFHandler(files)}
+          downloadHandler={() => breakPDFHandler(files, true)}
           LeftSideBoxExtra={LeftSideBoxExtra}
           FilePreviewExtra={FilePreviewExtra}
         />

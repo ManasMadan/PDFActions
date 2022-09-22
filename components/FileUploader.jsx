@@ -36,7 +36,7 @@ export default function FileUploader({ setFiles, multiple, fileType }) {
       >
         <div className="flex w-48 items-center justify-evenly mb-4 bg-amber-200 p-4 rounded-xl">
           <PDFIcon />
-          Choose Files
+          Choose File(s)
         </div>
 
         <div className="text-slate-400">Or Drop File(s) Here</div>

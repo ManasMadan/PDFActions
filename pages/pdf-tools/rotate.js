@@ -34,10 +34,18 @@ export default function rotate() {
   };
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Head>
         <title>PDFActions - Rotate PDF</title>
       </Head>
+
+      {/* Banner */}
+      <div className="bg-amber-200 border-gray-600 border-t-2 border-dotted text-gray-600 flex flex-col items-center justify-center h-[30vh] w-screen">
+        <div className="text-4xl font-medium leading-normal tracking-wide">
+          Rotate PDF
+        </div>
+        <div>Rotate Multiple PDF Files in One Go</div>
+      </div>
 
       {files.length === 0 && (
         <FileUploader setFiles={setFiles} fileType=".pdf" multiple={true} />
@@ -51,15 +59,11 @@ export default function rotate() {
             fileType: ".pdf",
             multiple: true,
           }}
-          banner={{
-            text: "Rotate PDF",
-            description: "Rotate PDF Files In One Go",
-          }}
           downloadHandler={() => rotatePDFHandler(files)}
           LeftSideBoxExtra={LeftSideBoxExtra}
           FilePreviewExtra={FilePreviewExtra}
         />
       )}
-    </>
+    </div>
   );
 }

@@ -24,10 +24,18 @@ export default function merge() {
   };
 
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Head>
         <title>PDFActions - Merge PDF</title>
       </Head>
+
+      {/* Banner */}
+      <div className="bg-amber-200 border-gray-600 border-t-2 border-dotted text-gray-600 flex flex-col items-center justify-center h-[30vh] w-screen">
+        <div className="text-4xl font-medium leading-normal tracking-wide">
+          Merge PDF
+        </div>
+        <div>Merge Multiple PDF Files Together</div>
+      </div>
 
       {files.length === 0 && (
         <FileUploader setFiles={setFiles} fileType=".pdf" multiple={true} />
@@ -41,15 +49,11 @@ export default function merge() {
             fileType: ".pdf",
             multiple: true,
           }}
-          banner={{
-            text: "Merge PDF",
-            description: "Merge PDF Files Together",
-          }}
           downloadHandler={() => mergePDFHandler(files)}
           LeftSideBoxExtra={LeftSideBoxExtra}
           FilePreviewExtra={FilePreviewExtra}
         />
       )}
-    </>
+    </div>
   );
 }

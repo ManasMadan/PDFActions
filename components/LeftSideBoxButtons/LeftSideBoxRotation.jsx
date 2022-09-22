@@ -46,7 +46,7 @@ export default function LeftSideBoxRotation({ files }) {
   };
   return (
     <>
-      <div className="flex justify-between mt-2 text-sm">
+      <div className="flex justify-between text-sm mt-2">
         <button
           className="hover:bg-amber-200 px-4 py-2 border-2 w-1/2 flex items-center justify-evenly"
           onClick={handleRotateLeftClick}

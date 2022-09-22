@@ -7,7 +7,6 @@ export default function PDFProcess({
   files,
   setFiles,
   sortableFilePreviewGrid,
-  banner,
   addFileOptions,
   downloadHandler,
   LeftSideBoxExtra,
@@ -49,14 +48,6 @@ export default function PDFProcess({
         onChange={(e) => onFileChange(e)}
       />
 
-      {/* Banner */}
-      <div className="bg-amber-200 border-gray-600 border-t-2 border-dotted text-gray-600 flex flex-col items-center justify-center h-[30vh] w-screen">
-        <div className="text-4xl font-medium leading-normal tracking-wide">
-          {banner.text}
-        </div>
-        <div>{banner.description}</div>
-      </div>
-
       {/* PDF Box */}
 
       <div className="px-4 py-6 md:px-24 md:py-12 flex flex-col items-center md:items-start">
@@ -74,6 +65,7 @@ export default function PDFProcess({
           <LeftSideBox
             handleAddFileButtonClick={handleAddFileButtonClick}
             handleDeleteFilesClick={handleDeleteFilesClick}
+            multiple={addFileOptions.multiple}
           >
             {LeftSideBoxExtra && <LeftSideBoxExtra />}
           </LeftSideBox>
