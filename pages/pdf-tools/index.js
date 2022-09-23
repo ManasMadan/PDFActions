@@ -7,6 +7,7 @@ export default function index() {
     ["Split PDF", "/pdf-tools/split"],
     ["Rotate PDF", "/pdf-tools/rotate"],
     ["Break PDF", "/pdf-tools/break"],
+    ["Flatten PDF Forms", "/pdf-tools/flattenform"],
   ];
   return (
     <div className="flex flex-wrap gap-4 p-12 items-center justify-center">
