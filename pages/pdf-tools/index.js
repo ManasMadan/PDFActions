@@ -14,7 +14,7 @@ export default function index() {
     ["Extract PDF Images", "/pdf-tools/extractpdfpages"], // 8
     ["Reorder PDF Pages", "/pdf-tools/reorderpdfpages"], // 9
     ["Rotate PDF Pages", "/pdf-tools/rotatepdfpages"], // 10
-    ["Resize PDF", "/pdf-tools/resize"], // 1
+    ["Resize PDF", "/pdf-tools/resize"], // 1 - Done
     ["Add Margin", "/pdf-tools/addmargin"], // 2
     ["Flatten PDF Forms", "/pdf-tools/flattenform"],
     ["Edit PDF Metadata", "/pdf-tools/editmetadata"], // 3
