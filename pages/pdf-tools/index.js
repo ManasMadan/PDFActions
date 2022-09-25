@@ -7,7 +7,18 @@ export default function index() {
     ["Split PDF", "/pdf-tools/split"],
     ["Rotate PDF", "/pdf-tools/rotate"],
     ["Break PDF", "/pdf-tools/break"],
+    ["Image to PDF", "/pdf-tools/fromimage"], // 6
+    ["Add Page Numbers", "/pdf-tools/addpagenumbers"], // 5
+    ["Remove PDF Pages", "/pdf-tools/removepdfpages"], // 11
+    ["Extract PDF Pages", "/pdf-tools/extractpdfpages"], // 7
+    ["Extract PDF Images", "/pdf-tools/extractpdfpages"], // 8
+    ["Reorder PDF Pages", "/pdf-tools/reorderpdfpages"], // 9
+    ["Rotate PDF Pages", "/pdf-tools/rotatepdfpages"], // 10
+    ["Resize PDF", "/pdf-tools/resize"], // 1
+    ["Add Margin", "/pdf-tools/addmargin"], // 2
     ["Flatten PDF Forms", "/pdf-tools/flattenform"],
+    ["Edit PDF Metadata", "/pdf-tools/editmetadata"], // 3
+    ["Remove PDF Metadata", "/pdf-tools/removemetadata"], // 4
   ];
   return (
     <div className="flex flex-wrap gap-4 p-12 items-center justify-center">
