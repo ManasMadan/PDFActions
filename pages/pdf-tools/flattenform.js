@@ -7,7 +7,7 @@ import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateBut
 import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButton";
 import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
 
-export default function merge() {
+export default function flattenForm() {
   const [files, setFiles] = useState([]);
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {

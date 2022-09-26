@@ -17,8 +17,8 @@ export default function index() {
     ["Resize PDF", "/pdf-tools/resize"], // 1 - Done
     ["Add Margin", "/pdf-tools/addmargin"], // 2 - Done
     ["Flatten PDF Forms", "/pdf-tools/flattenform"],
-    ["Edit PDF Metadata", "/pdf-tools/editmetadata"], // 3
-    ["Remove PDF Metadata", "/pdf-tools/removemetadata"], // 4
+    ["Edit PDF Metadata", "/pdf-tools/editmetadata"], // 3 - Done
+    ["Remove PDF Metadata", "/pdf-tools/removemetadata"], // 4 - Done
   ];
   return (
     <div className="flex flex-wrap gap-4 p-12 items-center justify-center">

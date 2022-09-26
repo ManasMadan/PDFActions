@@ -8,7 +8,7 @@ import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButt
 import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideMargin from "../../components/LeftSideBoxButtons/LeftSideMargin.jsx";
 
-export default function merge() {
+export default function addmargin() {
   const [files, setFiles] = useState([]);
   const [marginMillimeter, setMarginMillimeter] = useState([0, 0, 0, 0]);
 

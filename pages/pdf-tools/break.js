@@ -7,7 +7,7 @@ import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateBut
 import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideBreakPDF from "../../components/LeftSideBoxButtons/LeftSideBreakPDF";
 
-export default function merge() {
+export default function breakPDF() {
   const [files, setFiles] = useState([]);
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {

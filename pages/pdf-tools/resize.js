@@ -8,7 +8,7 @@ import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButt
 import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideResizePDF from "../../components/LeftSideBoxButtons/LeftSideResizePDF";
 
-export default function merge() {
+export default function resize() {
   const [files, setFiles] = useState([]);
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {
