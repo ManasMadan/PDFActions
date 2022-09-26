@@ -15,7 +15,7 @@ export default function index() {
     ["Reorder PDF Pages", "/pdf-tools/reorderpdfpages"], // 9
     ["Rotate PDF Pages", "/pdf-tools/rotatepdfpages"], // 10
     ["Resize PDF", "/pdf-tools/resize"], // 1 - Done
-    ["Add Margin", "/pdf-tools/addmargin"], // 2
+    ["Add Margin", "/pdf-tools/addmargin"], // 2 - Done
     ["Flatten PDF Forms", "/pdf-tools/flattenform"],
     ["Edit PDF Metadata", "/pdf-tools/editmetadata"], // 3
     ["Remove PDF Metadata", "/pdf-tools/removemetadata"], // 4
