@@ -26,10 +26,7 @@ export default function removemetadata() {
         <div className="text-4xl font-medium leading-normal tracking-wide">
           Remove PDF Meta Data
         </div>
-        <div>
-          Remove Meta Data of PDF Files : Note This Does Not Delete Complete
-          MetaData But Erase Commonly Used Things
-        </div>
+        <div>Remove Meta Data of PDF Files</div>
       </div>
 
       {files.length === 0 && (

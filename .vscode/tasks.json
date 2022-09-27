@@ -7,17 +7,12 @@
       "type": "shell"
     },
     {
-      "label": "Upload To Github",
-      "command": "git add .;git commit -m '${input:commitMessage}';git push origin master",
-      "type": "shell"
-    },
-    {
       "label": "Commit To Git",
       "command": "git add .;git commit -m '${input:commitMessage}';",
       "type": "shell"
     },
     {
-      "label": "Push Local Commits To Git",
+      "label": "Push Local Commits To GitHub",
       "command": "git push origin master",
       "type": "shell"
     },
