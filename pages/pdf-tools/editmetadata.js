@@ -3,7 +3,7 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import editMetaDataHandler from "../../methods/editMetaData";
-import LeftSideEditMetaData from "../../components/LeftSideBoxButtons/LeftSideEditMetaData";
+import LeftSideEditMetaData from "../../components/LeftSideBoxButtons/PDF/LeftSideEditMetaData";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function editmetadata() {

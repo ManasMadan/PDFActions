@@ -3,10 +3,10 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import splitPDFHandler from "../../methods/splitPDF";
-import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateButtons.jsx";
-import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButton.jsx";
-import FileRangeInput from "../../components/FilePreviewButtons/FileRangeInput.jsx";
-import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
+import FileRotateButtons from "../../components/FilePreviewButtons/PDF/FileRotateButtons.jsx";
+import FileDeleteButton from "../../components/FilePreviewButtons/PDF/FileDeleteButton.jsx";
+import FileRangeInput from "../../components/FilePreviewButtons/PDF/FileRangeInput.jsx";
+import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/PDF/LeftSideBoxRotation";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function split() {

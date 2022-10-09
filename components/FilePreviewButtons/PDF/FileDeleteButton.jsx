@@ -1,5 +1,5 @@
 import React from "react";
-import { DeleteIcon } from "../icons.jsx";
+import { DeleteIcon } from "../../icons.jsx";
 
 export default function FileDeleteButton({ file, setDeleted }) {
   const deleteFileHandler = () => {

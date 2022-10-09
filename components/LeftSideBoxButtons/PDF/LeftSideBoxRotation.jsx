@@ -1,6 +1,6 @@
 import React from "react";
-import { RotateLeft, RotateRight } from "../icons.jsx";
-import leftSideBoxExtraStyles from "../../styles/leftSideBoxRotateText.module.css";
+import { RotateLeft, RotateRight } from "../../icons.jsx";
+import leftSideBoxExtraStyles from "../../../styles/leftSideBoxRotateText.module.css";
 
 export default function LeftSideBoxRotation({ files }) {
   const handleResetClick = () => {

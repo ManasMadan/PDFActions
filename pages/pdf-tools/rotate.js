@@ -3,9 +3,9 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import rotatePDFHandler from "../../methods/rotatePDF";
-import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateButtons.jsx";
-import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButton.jsx";
-import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
+import FileRotateButtons from "../../components/FilePreviewButtons/PDF/FileRotateButtons.jsx";
+import FileDeleteButton from "../../components/FilePreviewButtons/PDF/FileDeleteButton.jsx";
+import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/PDF/LeftSideBoxRotation";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function rotate() {

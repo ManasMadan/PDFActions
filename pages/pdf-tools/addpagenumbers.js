@@ -3,7 +3,7 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import addPageNumbersHandler from "../../methods/addPageNumbers";
-import LeftSidePageNumbers from "../../components/LeftSideBoxButtons/LeftSidePageNumbers";
+import LeftSidePageNumbers from "../../components/LeftSideBoxButtons/PDF/LeftSidePageNumbers";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function addpagenumbers() {

@@ -1,5 +1,5 @@
 import React from "react";
-import { RotateLeft, RotateRight } from "../icons.jsx";
+import { RotateLeft, RotateRight } from "../../icons.jsx";
 
 export default function FileRotateButtons({ file, imageRef }) {
   const rotateFileLeftHandler = () => {

@@ -3,9 +3,9 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import breakPDFHandler from "../../methods/breakPDF.js";
-import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateButtons.jsx";
-import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
-import LeftSideBreakPDF from "../../components/LeftSideBoxButtons/LeftSideBreakPDF";
+import FileRotateButtons from "../../components/FilePreviewButtons/PDF/FileRotateButtons.jsx";
+import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/PDF/LeftSideBoxRotation";
+import LeftSideBreakPDF from "../../components/LeftSideBoxButtons/PDF/LeftSideBreakPDF";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function breakPDF() {

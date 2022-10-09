@@ -3,10 +3,10 @@ import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import addMarginHandler from "../../methods/addMargin.js";
-import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateButtons.jsx";
-import FileDeleteButton from "../../components/FilePreviewButtons/FileDeleteButton.jsx";
-import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
-import LeftSideMargin from "../../components/LeftSideBoxButtons/LeftSideMargin.jsx";
+import FileRotateButtons from "../../components/FilePreviewButtons/PDF/FileRotateButtons.jsx";
+import FileDeleteButton from "../../components/FilePreviewButtons/PDF/FileDeleteButton.jsx";
+import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/PDF/LeftSideBoxRotation";
+import LeftSideMargin from "../../components/LeftSideBoxButtons/PDF/LeftSideMargin.jsx";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function addmargin() {

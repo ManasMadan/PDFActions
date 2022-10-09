@@ -1,25 +1,8 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-
-const ImagePreview = ({ image }) => {
-  return (
-    <div>
-      <img src={image.src} />
-      {image.name}
-    </div>
-  );
-};
-
-const ImageProcess = ({ images, setImages }) => {
-  return (
-    <div>
-      {images.map((image) => (
-        <ImagePreview image={image} />
-      ))}
-    </div>
-  );
-};
+import ImageProcess from "../../components/ImageProcess";
+import imagesToPDFHandler from "../../methods/imagesToPDF.js";
 
 export default function fromimage() {
   const [images, setImages] = useState([]);
@@ -60,7 +43,12 @@ export default function fromimage() {
         />
       )}
       {images.length !== 0 && (
-        <ImageProcess images={images} setImages={setImages} />
+        <ImageProcess
+          images={images}
+          setImages={setImages}
+          addFileOptions={{ fileType: "image/*", multiple: true }}
+          downloadHandler={imagesToPDFHandler}
+        />
       )}
     </div>
   );
