@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
+import PDFFilesProcess from "../../components/PDFFile/PDFFilesProcess.jsx";
 import addMarginHandler from "../../methods/addMargin.js";
-import FileRotateButtons from "../../components/FilePreviewButtons/PDF/FileRotateButtons.jsx";
-import FileDeleteButton from "../../components/FilePreviewButtons/PDF/FileDeleteButton.jsx";
-import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/PDF/LeftSideBoxRotation";
-import LeftSideMargin from "../../components/LeftSideBoxButtons/PDF/LeftSideMargin.jsx";
+import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileRotateButtons";
+import FileDeleteButton from "../../components/PDFFile/FilePreviewButtons/FileDeleteButton";
+import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
+import LeftSideMargin from "../../components/PDFFile/LeftSideBoxButtons/LeftSideMargin.jsx";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function addmargin() {

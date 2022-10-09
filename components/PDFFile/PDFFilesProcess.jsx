@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import LeftSideBox from "./LeftSideBox";
+import LeftSideBox from "../LeftSideBox";
 import FilePreviewGrid from "./FilePreviewGrid";
-import imageDataURLFromFile from "../methods/imageDataURLfromFile";
+import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function PDFFilesProcess({
   files,

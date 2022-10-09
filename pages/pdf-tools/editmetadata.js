@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
+import PDFFilesProcess from "../../components/PDFFile/PDFFilesProcess.jsx";
 import editMetaDataHandler from "../../methods/editMetaData";
-import LeftSideEditMetaData from "../../components/LeftSideBoxButtons/PDF/LeftSideEditMetaData";
+import LeftSideEditMetaData from "../../components/PDFFile/LeftSideBoxButtons/LeftSideEditMetaData";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function editmetadata() {

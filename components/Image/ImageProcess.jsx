@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
+import LeftSideBox from "../LeftSideBox";
 
 export default function ImageProcess({
   images,
   setImages,
+  sortableImagePreviewGrid,
   addFileOptions,
   downloadHandler,
+  LeftSideBoxExtra,
+  ImagePreviewExtra,
 }) {
+  const inputButtonRef = useRef(null);
+
   const onFileChange = async (e) => {
     const temp = [];
     const newImages = e.target.files;
@@ -18,6 +24,12 @@ export default function ImageProcess({
     }
 
     setImages([...files, ...temp]);
+  };
+  const handleDeleteFilesClick = () => {
+    setImages([{ deleted: true }]);
+  };
+  const handleAddFileButtonClick = () => {
+    inputButtonRef.current.click();
   };
 
   return (
@@ -54,13 +66,13 @@ export default function ImageProcess({
             {LeftSideBoxExtra && <LeftSideBoxExtra />}
           </LeftSideBox>
 
-          {/* Right Side Box / File Preview */}
+          {/* Right Side Box / Image Preview */}
           <div className="w-full md:w-2/3 p-4 border-amber-200 border-2 border-dashed">
-            <FilePreviewGrid
-              files={files}
-              setFiles={setFiles}
-              FilePreviewExtra={FilePreviewExtra}
-              sortableFilePreviewGrid={sortableFilePreviewGrid}
+            <ImagePreviewGrid
+              images={images}
+              setImages={setImages}
+              ImagePreviewExtra={ImagePreviewExtra}
+              sortableImagePreviewGrid={sortableImagePreviewGrid}
             />
           </div>
         </div>

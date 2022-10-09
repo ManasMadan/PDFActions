@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
+import PDFFilesProcess from "../../components/PDFFile/PDFFilesProcess.jsx";
 import flattenPDFFormHandler from "../../methods/flattenPDFFormHandler.js";
-import FileRotateButtons from "../../components/FilePreviewButtons/PDF/FileRotateButtons.jsx";
-import FileDeleteButton from "../../components/FilePreviewButtons/PDF/FileDeleteButton";
-import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/PDF/LeftSideBoxRotation";
+import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileRotateButtons";
+import FileDeleteButton from "../../components/PDFFile/FilePreviewButtons/FileDeleteButton";
+import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function flattenForm() {

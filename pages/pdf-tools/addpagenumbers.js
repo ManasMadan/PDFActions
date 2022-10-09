@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
+import PDFFilesProcess from "../../components/PDFFile/PDFFilesProcess.jsx";
 import addPageNumbersHandler from "../../methods/addPageNumbers";
-import LeftSidePageNumbers from "../../components/LeftSideBoxButtons/PDF/LeftSidePageNumbers";
+import LeftSidePageNumbers from "../../components/PDFFile/LeftSideBoxButtons/LeftSidePageNumbers";
 import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function addpagenumbers() {

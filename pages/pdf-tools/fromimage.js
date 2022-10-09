@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import ImageProcess from "../../components/ImageProcess";
+import ImageProcess from "../../components/Image/ImageProcess";
 import imagesToPDFHandler from "../../methods/imagesToPDF.js";
 
 export default function fromimage() {
@@ -19,6 +19,14 @@ export default function fromimage() {
     }
 
     setImages(temp);
+  };
+
+  const LeftSideBoxExtra = () => {
+    return null;
+  };
+
+  const ImagePreviewExtra = () => {
+    return null;
   };
 
   return (
@@ -46,8 +54,11 @@ export default function fromimage() {
         <ImageProcess
           images={images}
           setImages={setImages}
+          sortableImagePreviewGrid={true}
           addFileOptions={{ fileType: "image/*", multiple: true }}
           downloadHandler={imagesToPDFHandler}
+          LeftSideBoxExtra={LeftSideBoxExtra}
+          ImagePreviewExtra={ImagePreviewExtra}
         />
       )}
     </div>
