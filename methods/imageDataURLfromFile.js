@@ -3,7 +3,8 @@ GlobalWorkerOptions.workerSrc =
   "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.js";
 
 const imageDataURLFromFile = async (file, pageNumber) => {
-  const doc = await getDocument({ url: URL.createObjectURL(file) }).promise;
+  const fileURL = URL.createObjectURL(file);
+  const doc = await getDocument({ url: fileURL }).promise;
   const page = await doc.getPage(pageNumber);
   var scale = 1.5;
   var viewport = page.getViewport({ scale: scale });
@@ -17,6 +18,7 @@ const imageDataURLFromFile = async (file, pageNumber) => {
   };
   var renderTask = page.render(renderContext);
   await renderTask.promise;
+  URL.revokeObjectURL(fileURL);
   return { image: canvas.toDataURL(), pageCount: doc.numPages };
 };
 

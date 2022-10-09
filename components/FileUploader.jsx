@@ -1,23 +1,8 @@
 import React, { useRef } from "react";
-import imageDataURLFromFile from "../methods/imageDataURLfromFile";
 import { PDFIcon } from "./icons";
 
-export default function FileUploader({ setFiles, multiple, fileType }) {
+export default function FileUploader({ onFileChange, multiple, fileType }) {
   const inputRef = useRef(null);
-  const onFileChange = async (e) => {
-    const temp = [];
-    const files = e.target.files;
-
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
-      temp.push(file);
-    }
-
-    setFiles(temp);
-  };
   const handleClick = () => inputRef.current.click();
 
   return (

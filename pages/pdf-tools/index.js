@@ -8,6 +8,7 @@ export default function index() {
     ["Rotate PDF", "/pdf-tools/rotate"],
     ["Break PDF", "/pdf-tools/break"],
     ["Image to PDF", "/pdf-tools/fromimage"], // 6
+    // ["Color to Grayscale", "/pdf-tools/tograyscale"], // 12
     ["Add Page Numbers", "/pdf-tools/addpagenumbers"], // 5 - Done
     ["Remove PDF Pages", "/pdf-tools/removepdfpages"], // 11
     ["Extract PDF Pages", "/pdf-tools/extractpdfpages"], // 7

@@ -1,14 +1,30 @@
 import React, { useState } from "react";
 import FileUploader from "../../components/FileUploader.jsx";
 import Head from "next/head";
-import PDFProcess from "../../components/PDFProcess.jsx";
+import PDFFilesProcess from "../../components/PDFFilesProcess.jsx";
 import breakPDFHandler from "../../methods/breakPDF.js";
 import FileRotateButtons from "../../components/FilePreviewButtons/FileRotateButtons.jsx";
 import LeftSideBoxRotation from "../../components/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideBreakPDF from "../../components/LeftSideBoxButtons/LeftSideBreakPDF";
+import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function breakPDF() {
   const [files, setFiles] = useState([]);
+
+  const onFileChange = async (e) => {
+    const temp = [];
+    const files = e.target.files;
+
+    for (var i = 0; i < files.length; i++) {
+      const file = files[i];
+      const data = await imageDataURLFromFile(file, 1);
+      file.image = data.image;
+      file.pageCount = data.pageCount;
+      temp.push(file);
+    }
+
+    setFiles(temp);
+  };
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {
     return (
@@ -48,10 +64,14 @@ export default function breakPDF() {
       </div>
 
       {files.length === 0 && (
-        <FileUploader setFiles={setFiles} fileType=".pdf" multiple={false} />
+        <FileUploader
+          onFileChange={onFileChange}
+          fileType=".pdf"
+          multiple={false}
+        />
       )}
       {files.length !== 0 && (
-        <PDFProcess
+        <PDFFilesProcess
           files={files}
           sortableFilePreviewGrid={false}
           setFiles={setFiles}
