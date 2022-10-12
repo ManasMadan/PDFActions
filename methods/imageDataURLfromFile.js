@@ -19,7 +19,7 @@ const imageDataURLFromFile = async (file, pageNumber) => {
   var renderTask = page.render(renderContext);
   await renderTask.promise;
   URL.revokeObjectURL(fileURL);
-  return { image: canvas.toDataURL(), pageCount: doc.numPages };
+  return canvas.toDataURL();
 };
 
 export default imageDataURLFromFile;

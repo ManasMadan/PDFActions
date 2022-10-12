@@ -6,24 +6,12 @@ import flattenPDFFormHandler from "../../methods/flattenPDFFormHandler.js";
 import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileRotateButtons";
 import FileDeleteButton from "../../components/PDFFile/FilePreviewButtons/FileDeleteButton";
 import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function flattenForm() {
   const [files, setFiles] = useState([]);
 
   const onFileChange = async (e) => {
-    const temp = [];
-    const files = e.target.files;
-
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
-      temp.push(file);
-    }
-
-    setFiles(temp);
+    setFiles([...e.target.files]);
   };
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {

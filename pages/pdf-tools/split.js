@@ -7,26 +7,23 @@ import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileR
 import FileDeleteButton from "../../components/PDFFile/FilePreviewButtons/FileDeleteButton";
 import FileRangeInput from "../../components/PDFFile/FilePreviewButtons/FileRangeInput";
 import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
+import getPDFPageCount from "../../methods/getPDFPageCount.js";
 
 export default function split() {
   const [files, setFiles] = useState([]);
 
   const onFileChange = async (e) => {
     const temp = [];
-    const files = e.target.files;
+    const newFiles = e.target.files;
 
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
+    for (let i = 0; i < newFiles.length; i++) {
+      const file = newFiles[i];
+      file.pageCount = await getPDFPageCount(file);
       temp.push(file);
     }
 
-    setFiles(temp);
+    setFiles([...files, ...temp]);
   };
-
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {
     return (
       <div className="flex flex-col gap-2 items-center justify-center mt-2 mb-2">

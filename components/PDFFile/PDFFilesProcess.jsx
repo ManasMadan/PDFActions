@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import LeftSideBox from "../LeftSideBox";
 import FilePreviewGrid from "./FilePreviewGrid";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
-
+import getPDFPageCount from "../../methods/getPDFPageCount";
 export default function PDFFilesProcess({
   files,
   setFiles,
@@ -25,12 +24,10 @@ export default function PDFFilesProcess({
     const temp = [];
     const newFiles = e.target.files;
 
-    for (var i = 0; i < newFiles.length; i++) {
-      const newFile = newFiles[i];
-      const data = await imageDataURLFromFile(newFile, 1);
-      newFile.image = data.image;
-      newFile.pageCount = data.pageCount;
-      temp.push(newFile);
+    for (let i = 0; i < newFiles.length; i++) {
+      const file = newFiles[i];
+      file.pageCount = await getPDFPageCount(file);
+      temp.push(file);
     }
 
     setFiles([...files, ...temp]);

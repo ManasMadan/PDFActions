@@ -6,24 +6,22 @@ import breakPDFHandler from "../../methods/breakPDF.js";
 import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileRotateButtons";
 import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideBreakPDF from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBreakPDF";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
+import getPDFPageCount from "../../methods/getPDFPageCount.js";
 
 export default function breakPDF() {
   const [files, setFiles] = useState([]);
 
   const onFileChange = async (e) => {
     const temp = [];
-    const files = e.target.files;
+    const newFiles = e.target.files;
 
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
+    for (let i = 0; i < newFiles.length; i++) {
+      const file = newFiles[i];
+      file.pageCount = await getPDFPageCount(file);
       temp.push(file);
     }
 
-    setFiles(temp);
+    setFiles([...files, ...temp]);
   };
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {

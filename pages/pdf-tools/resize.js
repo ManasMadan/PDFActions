@@ -7,24 +7,12 @@ import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileR
 import FileDeleteButton from "../../components/PDFFile/FilePreviewButtons/FileDeleteButton";
 import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideResizePDF from "../../components/PDFFile/LeftSideBoxButtons/LeftSideResizePDF";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function resize() {
   const [files, setFiles] = useState([]);
 
   const onFileChange = async (e) => {
-    const temp = [];
-    const files = e.target.files;
-
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
-      temp.push(file);
-    }
-
-    setFiles(temp);
+    setFiles([...e.target.files]);
   };
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {

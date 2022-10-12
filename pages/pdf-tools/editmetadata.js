@@ -4,7 +4,6 @@ import Head from "next/head";
 import PDFFilesProcess from "../../components/PDFFile/PDFFilesProcess.jsx";
 import editMetaDataHandler from "../../methods/editMetaData";
 import LeftSideEditMetaData from "../../components/PDFFile/LeftSideBoxButtons/LeftSideEditMetaData";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function editmetadata() {
   const [files, setFiles] = useState([]);
@@ -22,18 +21,7 @@ export default function editmetadata() {
   });
 
   const onFileChange = async (e) => {
-    const temp = [];
-    const files = e.target.files;
-
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
-      temp.push(file);
-    }
-
-    setFiles(temp);
+    setFiles([...e.target.files]);
   };
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {

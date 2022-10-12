@@ -7,25 +7,13 @@ import FileRotateButtons from "../../components/PDFFile/FilePreviewButtons/FileR
 import FileDeleteButton from "../../components/PDFFile/FilePreviewButtons/FileDeleteButton";
 import LeftSideBoxRotation from "../../components/PDFFile/LeftSideBoxButtons/LeftSideBoxRotation";
 import LeftSideMargin from "../../components/PDFFile/LeftSideBoxButtons/LeftSideMargin.jsx";
-import imageDataURLFromFile from "../../methods/imageDataURLfromFile";
 
 export default function addmargin() {
   const [files, setFiles] = useState([]);
   const [marginMillimeter, setMarginMillimeter] = useState([0, 0, 0, 0]);
 
   const onFileChange = async (e) => {
-    const temp = [];
-    const files = e.target.files;
-
-    for (var i = 0; i < files.length; i++) {
-      const file = files[i];
-      const data = await imageDataURLFromFile(file, 1);
-      file.image = data.image;
-      file.pageCount = data.pageCount;
-      temp.push(file);
-    }
-
-    setFiles(temp);
+    setFiles([...e.target.files]);
   };
 
   const FilePreviewExtra = ({ file, setDeleted, imageRef }) => {
