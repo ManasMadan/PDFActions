@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import LeftSideBox from "../LeftSideBox";
+import ImagePreviewGrid from "./ImagePreviewGrid";
 
 export default function ImageProcess({
   images,
@@ -16,14 +17,20 @@ export default function ImageProcess({
     const temp = [];
     const newImages = e.target.files;
 
-    for (var i = 0; i < images.length; i++) {
+    for (var i = 0; i < newImages.length; i++) {
       const newImage = newImages[i];
       const imageURL = URL.createObjectURL(newImage);
-      const imageData = { src: imageURL, name: newImage.name };
+      const imageBytes = await fetch(imageURL).then((res) => res.arrayBuffer());
+      const imageData = {
+        src: imageBytes,
+        name: newImage.name,
+        degrees: 0,
+        deleted: false,
+      };
       temp.push(imageData);
     }
 
-    setImages([...files, ...temp]);
+    setImages([...images, ...temp]);
   };
   const handleDeleteFilesClick = () => {
     setImages([{ deleted: true }]);

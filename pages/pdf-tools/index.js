@@ -7,9 +7,9 @@ export default function index() {
     ["Split PDF", "/pdf-tools/split"],
     ["Rotate PDF", "/pdf-tools/rotate"],
     ["Break PDF", "/pdf-tools/break"],
-    ["Image to PDF", "/pdf-tools/fromimage"], // 6
-    // ["Color to Grayscale", "/pdf-tools/tograyscale"], // 12
+    ["JPG to PDF", "/pdf-tools/jpgtopdf"], // 6 - Done
     ["Add Page Numbers", "/pdf-tools/addpagenumbers"], // 5 - Done
+    ["Color to Grayscale", "/pdf-tools/tograyscale"], // 12
     ["Remove PDF Pages", "/pdf-tools/removepdfpages"], // 11
     ["Extract PDF Pages", "/pdf-tools/extractpdfpages"], // 7
     ["Extract PDF Images", "/pdf-tools/extractpdfpages"], // 8
