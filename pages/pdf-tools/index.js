@@ -7,19 +7,13 @@ export default function index() {
     ["Split PDF", "/pdf-tools/split"],
     ["Rotate PDF", "/pdf-tools/rotate"],
     ["Break PDF", "/pdf-tools/break"],
-    ["JPG to PDF", "/pdf-tools/jpgtopdf"], // 6 - Done
-    ["Add Page Numbers", "/pdf-tools/addpagenumbers"], // 5 - Done
-    ["Color to Grayscale", "/pdf-tools/tograyscale"], // 12
-    ["Remove PDF Pages", "/pdf-tools/removepdfpages"], // 11
-    ["Extract PDF Pages", "/pdf-tools/extractpdfpages"], // 7
-    ["Extract PDF Images", "/pdf-tools/extractpdfpages"], // 8
-    ["Reorder PDF Pages", "/pdf-tools/reorderpdfpages"], // 9
-    ["Rotate PDF Pages", "/pdf-tools/rotatepdfpages"], // 10
-    ["Resize PDF", "/pdf-tools/resize"], // 1 - Done
-    ["Add Margin", "/pdf-tools/addmargin"], // 2 - Done
+    ["JPG to PDF", "/pdf-tools/jpgtopdf"],
+    ["Add Page Numbers", "/pdf-tools/addpagenumbers"],
+    ["Resize PDF", "/pdf-tools/resize"],
+    ["Add Margin", "/pdf-tools/addmargin"],
     ["Flatten PDF Forms", "/pdf-tools/flattenform"],
-    ["Edit PDF Metadata", "/pdf-tools/editmetadata"], // 3 - Done
-    ["Remove PDF Metadata", "/pdf-tools/removemetadata"], // 4 - Done
+    ["Edit PDF Metadata", "/pdf-tools/editmetadata"],
+    ["Remove PDF Metadata", "/pdf-tools/removemetadata"],
   ];
   return (
     <div className="flex flex-wrap gap-4 p-12 items-center justify-center">
