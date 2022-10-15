@@ -22,8 +22,8 @@ export default function Navbar() {
   };
 
   return (
-    <div className="overflow-hidden">
-      <header className="flex items-center justify-center text-gray-600 body-font h-[10vh] bg-amber-200">
+    <nav className="overflow-hidden">
+      <header className="flex items-center justify-center text-gray-600 body-font h-[70px] bg-amber-200">
         <div className="flex items-center flex-wrap w-11/12 justify-between">
           <div className="title-font font-medium text-gray-900 text-xl">
             <Link href="/">PDFActions</Link>
@@ -72,6 +72,6 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
-    </div>
+    </nav>
   );
 }
