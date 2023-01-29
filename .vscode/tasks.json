@@ -3,7 +3,7 @@
   "tasks": [
     {
       "label": "Run",
-      "command": "npm run dev",
+      "command": "yarn dev",
       "type": "shell"
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "label": "Build",
-      "command": "npm run build; npm run export",
+      "command": "yarn build; yarn export",
       "type": "shell"
     }
   ],
