@@ -23,7 +23,7 @@ export default function LanguageSelector() {
 
       <select
         id="language_selector"
-        className="rounded-lg px-4 text-[#666666]"
+        className="rounded-lg border-r-8 border-transparent px-4 text-[#666666]"
         onChange={(e) => router.push(redirectedPathName(e.target.value))}
         value={currentLanguage}
       >
