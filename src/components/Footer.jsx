@@ -36,7 +36,7 @@ async function FooterBottom({ lang }) {
       <div className="container grid grid-cols-1 items-center py-3 lg:grid-cols-3 lg:py-6">
         <div className="flex items-center justify-between">
           <CustomLink
-            className="text-[#D3D3D3CC] lg:text-lg"
+            className="text-[#D3D3D3CC] transition-colors hover:text-[#FFFFFFCC] lg:text-lg"
             href="/privacy-policy"
           >
             {home_page.footer.bottom.privacy_policy}
