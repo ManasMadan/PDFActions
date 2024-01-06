@@ -1,8 +1,8 @@
 import React from "react";
 import LogoComponent from "./LogoComponent";
-import Link from "next/link";
 import LanguageSelector from "./LanguageSelector";
 import { getDictionary } from "@/lib/dictionary";
+import CustomLink from "./CustomLinkComponent";
 
 function FooterTop({ lang }) {
   return <section className="container">Footer Top</section>;
@@ -14,9 +14,12 @@ async function FooterBottom({ lang }) {
     <section className="bg-primary text-white">
       <div className="container grid grid-cols-1 items-center py-3 sm:grid-cols-1 lg:grid-cols-3 lg:py-6">
         <div className="flex items-center justify-between">
-          <Link className="text-[#D3D3D3CC] lg:text-lg" href="/privacy-policy">
+          <CustomLink
+            className="text-[#D3D3D3CC] lg:text-lg"
+            href="/privacy-policy"
+          >
             {home_page.footer.bottom.privacy_policy}
-          </Link>
+          </CustomLink>
           <LogoComponent className="hidden text-center sm:block lg:hidden" />
           <LanguageSelector />
         </div>
