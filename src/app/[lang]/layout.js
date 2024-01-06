@@ -1,6 +1,12 @@
 import "./globals.css";
 import { i18n } from "@/i18n.config";
 import Footer from "@/components/Footer.jsx";
+import { Kadwa } from "next/font/google";
+
+const kadwa = Kadwa({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata = {
   title: "PDFActions",
@@ -15,7 +21,7 @@ export async function generateStaticParams() {
 export default function RootLayout({ children, params }) {
   return (
     <html lang={params.lang}>
-      <body>
+      <body className={kadwa.className}>
         <main>{children}</main>
         <Footer lang={params.lang} />
       </body>

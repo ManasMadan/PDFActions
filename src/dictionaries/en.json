@@ -1,3 +1,12 @@
 {
-  "appname": "PDFActions"
+  "appname": "PDFActions",
+  "home_page": {
+    "footer": {
+      "bottom": {
+        "copyright_left": "Copyright ",
+        "copyright_right": " - Delhi, Inc",
+        "privacy_policy": "Privacy Policy"
+      }
+    }
+  }
 }

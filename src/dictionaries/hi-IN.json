@@ -1,3 +1,12 @@
 {
-  "appname": "पीडीएफक्रियाएँ"
+  "appname": "PDFActions",
+  "home_page": {
+    "footer": {
+      "bottom": {
+        "copyright_left": "कॉपीराइट ",
+        "copyright_right": " - दिल्ली, इंक",
+        "privacy_policy": "गोपनीयता नीति"
+      }
+    }
+  }
 }
