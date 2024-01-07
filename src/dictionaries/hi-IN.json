@@ -1,6 +1,31 @@
 {
   "appname": "PDFActions",
   "home_page": {
+    "why_use": {
+      "title": "क्यों",
+      "reasons": [
+        {
+          "icon": "/icons/why_use/cost_free.png",
+          "title": "लागत मुक्त सुविधा",
+          "description": "PDFActions का आनंद व्यक्तिगत और व्यापारिक उपयोग के लिए बिना किसी शुल्क या पंजीकरण की परेशानियों के।"
+        },
+        {
+          "icon": "/icons/why_use/security.png",
+          "title": "मजबूत सुरक्षा उपाय",
+          "description": "सुरक्षित PDFActions: ब्राउज़र आधारित प्रक्रिया सुनिश्चित करती है कि डेटा गोपनीयता को बनाए रखा जाता है, तीसरे पक्ष का पहुंच रोकती है।"
+        },
+        {
+          "icon": "/icons/why_use/efficiency.png",
+          "title": "कुशलता मुक्ति",
+          "description": "3 कदमों में कठिनाई रहित PDF कार्य, कोई अतिरिक्त सॉफ़्टवेयर नहीं। PDFActions बड़े साइज को स्विफ्टली संचालित करता है।"
+        },
+        {
+          "icon": "/icons/why_use/accessible.png",
+          "title": "सार्वभौम पहुंचन",
+          "description": "वेब-आधारित PDFActions: क्रॉस-प्लेटफ़ॉर्म, किसी भी कंप्यूटर से बिना किसी कठिनाई के, प्रमुख ब्राउज़र समर्थन के साथ सीमित पहुंच।"
+        }
+      ]
+    },
     "footer": {
       "top": {
         "about_us": "हमारे बारे में",
@@ -14,15 +39,15 @@
             "email": "manasmadan08@gmail.com",
             "social_links": [
               {
-                "icon": "/icons/github.png",
+                "icon": "/icons/socials/github.png",
                 "link": "https://www.github.com/ManasMadan"
               },
               {
-                "icon": "/icons/linkedin.png",
+                "icon": "/icons/socials/linkedin.png",
                 "link": "https://www.linkedin.com/in/manas-madan/"
               },
               {
-                "icon": "/icons/website.png",
+                "icon": "/icons/socials/website.png",
                 "link": "https://linktr.ee/manasmadan"
               }
             ]
@@ -38,11 +63,11 @@
             "email": "ayusharora4102004@gmail.com",
             "social_links": [
               {
-                "icon": "/icons/linkedin.png",
+                "icon": "/icons/socials/linkedin.png",
                 "link": "https://www.linkedin.com/in/ayush-arora4/"
               },
               {
-                "icon": "/icons/dribbble.png",
+                "icon": "/icons/socials/dribbble.png",
                 "link": "https://www.linkedin.com/in/ayush-arora4/"
               }
             ]
