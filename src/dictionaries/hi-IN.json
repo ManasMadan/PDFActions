@@ -2,6 +2,54 @@
   "appname": "PDFActions",
   "home_page": {
     "footer": {
+      "top": {
+        "about_us": "हमारे बारे में",
+        "about_us_text": "PDFActions में आपका स्वागत है - आपका सुरक्षित, परेशानी मुक्त पीडीएफ समाधान. अपने ब्राउज़र में फ़ाइलों को संख्या के साथ संसाधित करें डेटा अपलोड. विंडोज़, मैक, लिनक्स और पर काम करता है मोबाइल उपकरणों। हमारे साथ अपने पीडीएफ कार्यों को सरल बनाएं!",
+        "developers": [
+          {
+            "avatar": "/images/developers/manas.png",
+            "name": "मानस मदान",
+            "position": "वेब डेवलपर",
+            "tagline": { "first": "कोड मेस्ट्रो,", "last": "वेब विज़ार्ड" },
+            "email": "manasmadan08@gmail.com",
+            "social_links": [
+              {
+                "icon": "/icons/github.png",
+                "link": "https://www.github.com/ManasMadan"
+              },
+              {
+                "icon": "/icons/linkedin.png",
+                "link": "https://www.linkedin.com/in/manas-madan/"
+              },
+              {
+                "icon": "/icons/website.png",
+                "link": "https://linktr.ee/manasmadan"
+              }
+            ]
+          },
+          {
+            "avatar": "/images/developers/ayush.png",
+            "name": "आयुष अरोड़ा",
+            "position": "UI/UX डिजाइनर",
+            "tagline": {
+              "first": "डिज़ाइन डायनेमो,",
+              "last": "पिक्सेल पायनियर"
+            },
+            "email": "ayusharora4102004@gmail.com",
+            "social_links": [
+              {
+                "icon": "/icons/linkedin.png",
+                "link": "https://www.linkedin.com/in/ayush-arora4/"
+              },
+              {
+                "icon": "/icons/dribbble.png",
+                "link": "https://www.linkedin.com/in/ayush-arora4/"
+              }
+            ]
+          }
+        ],
+        "powered_by": "से संचालित"
+      },
       "bottom": {
         "copyright_left": "कॉपीराइट ",
         "copyright_right": " - दिल्ली, इंक",

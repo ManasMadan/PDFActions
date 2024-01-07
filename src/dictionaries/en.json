@@ -2,6 +2,51 @@
   "appname": "PDFActions",
   "home_page": {
     "footer": {
+      "top": {
+        "about_us": "About Us",
+        "about_us_text": "Welcome to PDFActions - your secure, hassle-free PDF solution. Process files in your browser with no data uploads. Works on Windows, Mac, Linux, and mobile devices. Simplify your PDF tasks with us!",
+        "developers": [
+          {
+            "avatar": "/images/developers/manas.png",
+            "name": "Manas Madan",
+            "position": "Web Developer",
+            "tagline": { "first": "Code Maestro,", "last": "Web Wizard" },
+            "email": "manasmadan08@gmail.com",
+            "social_links": [
+              {
+                "icon": "/icons/github.png",
+                "link": "https://www.github.com/ManasMadan"
+              },
+              {
+                "icon": "/icons/linkedin.png",
+                "link": "https://www.linkedin.com/in/manas-madan/"
+              },
+              {
+                "icon": "/icons/website.png",
+                "link": "https://linktr.ee/manasmadan"
+              }
+            ]
+          },
+          {
+            "avatar": "/images/developers/ayush.png",
+            "name": "Ayush Arora",
+            "position": "UI/UX Designer",
+            "tagline": { "first": "Design Dynamo,", "last": "Pixel Pioneer" },
+            "email": "ayusharora4102004@gmail.com",
+            "social_links": [
+              {
+                "icon": "/icons/linkedin.png",
+                "link": "https://www.linkedin.com/in/ayush-arora4/"
+              },
+              {
+                "icon": "/icons/dribbble.png",
+                "link": "https://www.linkedin.com/in/ayush-arora4/"
+              }
+            ]
+          }
+        ],
+        "powered_by": "Powered By"
+      },
       "bottom": {
         "copyright_left": "Copyright ",
         "copyright_right": " - Delhi, Inc",

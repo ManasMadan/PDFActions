@@ -4,25 +4,44 @@ import LanguageSelector from "./LanguageSelector";
 import { getDictionary } from "@/lib/dictionary";
 import CustomLink from "./CustomLinkComponent";
 import DeveloperCard from "./DeveloperCard";
+import Link from "next/link";
 
-function FooterTop({ lang }) {
+async function FooterTop({ lang }) {
+  const { home_page } = await getDictionary(lang);
+  const powered_by = [
+    { image: "pdflib", link: "https://pdf-lib.js.org/" },
+    { image: "nextjs", link: "https://nextjs.org/" },
+    { image: "vercel", link: "https://vercel.com/" },
+    { image: "tailwind", link: "https://tailwindcss.com/" },
+  ];
+
   return (
-    <section className="container grid gap-x-3 py-3 xl:grid-cols-2">
+    <section className="container grid gap-7 py-3 lg:grid-cols-3">
       <div>
-        <h1 className="text-lg">About Us</h1>
-        <p className="text-sm text-[#00000080]">
-          Welcome to PDFActions - your secure, hassle-free PDF solution. Process
-          files in your browser with no data uploads. Works on Windows, Mac,
-          Linux, and mobile devices. Simplify your PDF tasks with us!
-        </p>
+        <h1 className="text-lg">{home_page.footer.top.about_us}</h1>
+        <p className="text-[#00000080]">{home_page.footer.top.about_us_text}</p>
       </div>
-      <div className="flex flex-col sm:flex-row">
-        <div className="flex w-full max-w-[650px] flex-col sm:flex-row">
-          <DeveloperCard />
-          <DeveloperCard />
+      <div className="flex flex-col justify-between gap-7 sm:flex-row lg:col-span-2">
+        <div className="grid min-w-fit grid-cols-2 gap-4">
+          {home_page.footer.top.developers.map((developer) => (
+            <DeveloperCard details={developer} key={developer.avatar} />
+          ))}
         </div>
-        <div className="w-full sm:max-w-[300px] lg:max-w-none">
-          <h1>Powered By</h1>
+        <div className="w-full max-w-[400px]">
+          <h1 className="text-lg">{home_page.footer.top.powered_by}</h1>
+          <ul className="grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
+            {powered_by.map(({ link, image }) => (
+              <Link href={link} className="flex justify-end" key={image}>
+                <li className="w-full">
+                  <img
+                    src={`/images/powered_by/${image}.png`}
+                    className="h-full w-full object-contain"
+                    alt={image}
+                  />
+                </li>
+              </Link>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
