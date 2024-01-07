@@ -3,8 +3,8 @@ import LogoComponent from "./LogoComponent";
 import LanguageSelector from "./LanguageSelector";
 import { getDictionary } from "@/lib/dictionary";
 import CustomLink from "./CustomLinkComponent";
-import DeveloperCard from "./DeveloperCard";
 import Link from "next/link";
+import DeveloperCards from "./DeveloperCards";
 
 async function FooterTop({ lang }) {
   const { home_page } = await getDictionary(lang);
@@ -22,11 +22,7 @@ async function FooterTop({ lang }) {
         <p className="text-[#00000080]">{home_page.footer.top.about_us_text}</p>
       </div>
       <div className="flex flex-col justify-between gap-7 sm:flex-row lg:col-span-2">
-        <div className="grid min-w-fit grid-cols-2 gap-4">
-          {home_page.footer.top.developers.map((developer) => (
-            <DeveloperCard details={developer} key={developer.avatar} />
-          ))}
-        </div>
+        <DeveloperCards developers={home_page.footer.top.developers} />
         <div className="w-full max-w-[400px]">
           <h1 className="text-lg">{home_page.footer.top.powered_by}</h1>
           <ul className="grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">

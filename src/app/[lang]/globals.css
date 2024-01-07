@@ -8,7 +8,11 @@
 
 html {
   background-color: var(--primary);
+  width: 100vw;
+  overflow-x: hidden;
 }
 body {
   background-color: #fff;
+  width: 100vw;
+  overflow-x: hidden;
 }
