@@ -29,8 +29,8 @@ export default async function WhyUse({ lang }) {
   const { home_page } = await getDictionary(lang);
   const reasons = home_page.why_use.reasons;
   return (
-    <section className="container my-10">
-      <div className="mobile:mb-16 relative mb-8 flex justify-center gap-2 text-2xl sm:text-3xl xl:text-4xl">
+    <section className="container my-20">
+      <div className="mobile:mb-24 relative mb-8 flex justify-center gap-2 text-2xl sm:text-3xl xl:text-4xl">
         <div className="mobile:w-[90vw] absolute top-1/2 h-1 w-0 translate-y-[-50%] rounded-full bg-[#00000033] sm:w-full"></div>
 
         <div className="z-10 flex flex-wrap justify-center bg-white px-8 text-2xl sm:text-3xl xl:text-4xl">

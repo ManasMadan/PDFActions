@@ -1,6 +1,118 @@
 {
   "appname": "PDFActions",
   "home_page": {
+    "pdf_tools": [
+      {
+        "icon": "/icons/pdf_tools/merge.png",
+        "link": "/pdf-tools/merge",
+        "text": "PDF विलीन करें"
+      },
+      {
+        "icon": "/icons/pdf_tools/split.png",
+        "link": "/pdf-tools/split",
+        "text": "PDF विभाजित"
+      },
+      {
+        "icon": "/icons/pdf_tools/rotate.png",
+        "link": "/pdf-tools/rotate",
+        "text": "PDF घुमाएं"
+      },
+      {
+        "icon": "/icons/pdf_tools/image_to_pdf.png",
+        "link": "/pdf-tools/image_to_pdf",
+        "text": "छवि से PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/add_page_number.png",
+        "link": "/pdf-tools/add_page_number",
+        "text": "पृष्ठ संख्या जोड़ें"
+      },
+      {
+        "icon": "/icons/pdf_tools/resize.png",
+        "link": "/pdf-tools/resize",
+        "text": " PDF का आकार बदलें"
+      },
+      {
+        "icon": "/icons/pdf_tools/add_margin.png",
+        "link": "/pdf-tools/add_margin",
+        "text": "मार्जिन जोड़ें"
+      },
+      {
+        "icon": "/icons/pdf_tools/combine_pages.png",
+        "link": "/pdf-tools/combine_pages",
+        "text": "PDF पृष्ठों को जोड़ें"
+      },
+      {
+        "icon": "/icons/pdf_tools/extract_pages.png",
+        "link": "/pdf-tools/extract_pages",
+        "text": "PDF पृष्ठों को निकालें"
+      },
+      {
+        "icon": "/icons/pdf_tools/remove_pages.png",
+        "link": "/pdf-tools/remove_pages",
+        "text": "PDF पृष्ठों को हटाएं"
+      },
+      {
+        "icon": "/icons/pdf_tools/reorder_pages.png",
+        "link": "/pdf-tools/reorder_pages",
+        "text": "PDF पृष्ठों क्रमित करें"
+      },
+      {
+        "icon": "/icons/pdf_tools/rotate_pages.png",
+        "link": "/pdf-tools/rotate_pages",
+        "text": "PDF पृष्ठों को घुमाएं"
+      },
+      {
+        "icon": "/icons/pdf_tools/extract_images.png",
+        "link": "/pdf-tools/extract_images",
+        "text": "PDF छवियाँ निकालें"
+      },
+      {
+        "icon": "/icons/pdf_tools/break_pdf.png",
+        "link": "/pdf-tools/break_pdf",
+        "text": "PDF विघटित करें"
+      },
+      {
+        "icon": "/icons/pdf_tools/flatten_forms.png",
+        "link": "/pdf-tools/flatten_forms",
+        "text": "PDF फॉर्म्स समतल"
+      },
+      {
+        "icon": "/icons/pdf_tools/edit_metadata.png",
+        "link": "/pdf-tools/edit_metadata",
+        "text": "मेटाडेटा संपादित करें"
+      },
+      {
+        "icon": "/icons/pdf_tools/remove_metadata.png",
+        "link": "/pdf-tools/remove_metadata",
+        "text": "मेटाडेटा हटाएं"
+      },
+      {
+        "icon": "/icons/pdf_tools/compress.png",
+        "link": "/pdf-tools/compress",
+        "text": "PDF संपीड़ित करें"
+      },
+      {
+        "icon": "/icons/pdf_tools/html_to_pdf.png",
+        "link": "/pdf-tools/html_to_pdf",
+        "text": "HTML से PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/watermark.png",
+        "link": "/pdf-tools/watermark",
+        "text": "वॉटरमार्क जोड़ें"
+      },
+      {
+        "icon": "/icons/pdf_tools/unlock.png",
+        "link": "/pdf-tools/unlock",
+        "text": "PDF अनलॉक करें"
+      },
+      {
+        "icon": "/icons/pdf_tools/protect.png",
+        "link": "/pdf-tools/protect",
+        "text": "PDF सुरक्षित करें"
+      }
+    ],
     "why_use": {
       "title": "क्यों",
       "reasons": [

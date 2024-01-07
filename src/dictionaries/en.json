@@ -1,6 +1,118 @@
 {
   "appname": "PDFActions",
   "home_page": {
+    "pdf_tools": [
+      {
+        "icon": "/icons/pdf_tools/merge.png",
+        "link": "/pdf-tools/merge",
+        "text": "Merge PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/split.png",
+        "link": "/pdf-tools/split",
+        "text": "Split PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/rotate.png",
+        "link": "/pdf-tools/rotate",
+        "text": "Rotate PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/image_to_pdf.png",
+        "link": "/pdf-tools/image_to_pdf",
+        "text": "Image to PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/add_page_number.png",
+        "link": "/pdf-tools/add_page_number",
+        "text": "Add Page Numbers"
+      },
+      {
+        "icon": "/icons/pdf_tools/resize.png",
+        "link": "/pdf-tools/resize",
+        "text": "Resize PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/add_margin.png",
+        "link": "/pdf-tools/add_margin",
+        "text": "Add Margin"
+      },
+      {
+        "icon": "/icons/pdf_tools/combine_pages.png",
+        "link": "/pdf-tools/combine_pages",
+        "text": "Combine Pages"
+      },
+      {
+        "icon": "/icons/pdf_tools/extract_pages.png",
+        "link": "/pdf-tools/extract_pages",
+        "text": "Extract Pages"
+      },
+      {
+        "icon": "/icons/pdf_tools/remove_pages.png",
+        "link": "/pdf-tools/remove_pages",
+        "text": "Remove Pages"
+      },
+      {
+        "icon": "/icons/pdf_tools/reorder_pages.png",
+        "link": "/pdf-tools/reorder_pages",
+        "text": "Reorder Pages"
+      },
+      {
+        "icon": "/icons/pdf_tools/rotate_pages.png",
+        "link": "/pdf-tools/rotate_pages",
+        "text": "Rotate Pages"
+      },
+      {
+        "icon": "/icons/pdf_tools/extract_images.png",
+        "link": "/pdf-tools/extract_images",
+        "text": "Extract Images"
+      },
+      {
+        "icon": "/icons/pdf_tools/break_pdf.png",
+        "link": "/pdf-tools/break_pdf",
+        "text": "Break PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/flatten_forms.png",
+        "link": "/pdf-tools/flatten_forms",
+        "text": "Flatten Forms"
+      },
+      {
+        "icon": "/icons/pdf_tools/edit_metadata.png",
+        "link": "/pdf-tools/edit_metadata",
+        "text": "Edit Metadata"
+      },
+      {
+        "icon": "/icons/pdf_tools/remove_metadata.png",
+        "link": "/pdf-tools/remove_metadata",
+        "text": "Remove Metadata"
+      },
+      {
+        "icon": "/icons/pdf_tools/compress.png",
+        "link": "/pdf-tools/compress",
+        "text": "Compress PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/html_to_pdf.png",
+        "link": "/pdf-tools/html_to_pdf",
+        "text": "HTML to PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/watermark.png",
+        "link": "/pdf-tools/watermark",
+        "text": "Add Watermark"
+      },
+      {
+        "icon": "/icons/pdf_tools/unlock.png",
+        "link": "/pdf-tools/unlock",
+        "text": "Unlock PDF"
+      },
+      {
+        "icon": "/icons/pdf_tools/protect.png",
+        "link": "/pdf-tools/protect",
+        "text": "Protect PDF"
+      }
+    ],
     "why_use": {
       "title": "Why Use",
       "reasons": [
