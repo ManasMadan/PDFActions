@@ -44,6 +44,7 @@ export default async function WhyUse({ lang }) {
       <div className="grid grid-cols-1 gap-12 sm:gap-16 md:grid-cols-2">
         {[0, 1, 2, 3].map((index) => (
           <MotionDivWrapper
+            delay={index * 0.1}
             key={reasons[index].icon}
             initial={{
               opacity: 0,

@@ -4,7 +4,7 @@ import LanguageSelector from "./LanguageSelector";
 import { getDictionary } from "@/lib/dictionary";
 import CustomLink from "./CustomLinkComponent";
 import Link from "next/link";
-import DeveloperCards from "./DeveloperCards";
+import Developers from "./Developers";
 
 async function FooterTop({ lang }) {
   const { home_page } = await getDictionary(lang);
@@ -22,7 +22,7 @@ async function FooterTop({ lang }) {
         <p className="text-[#00000080]">{home_page.footer.top.about_us_text}</p>
       </div>
       <div className="flex flex-col justify-between gap-7 sm:flex-row lg:col-span-2">
-        <DeveloperCards developers={home_page.footer.top.developers} />
+        <Developers developers={home_page.footer.top.developers} />
         <div className="w-full max-w-[400px]">
           <h1 className="text-lg">{home_page.footer.top.powered_by}</h1>
           <ul className="grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
