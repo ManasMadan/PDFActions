@@ -5,3 +5,10 @@
 :root {
   --primary: #dc143c;
 }
+
+html {
+  background-color: var(--primary);
+}
+body {
+  background-color: #fff;
+}
