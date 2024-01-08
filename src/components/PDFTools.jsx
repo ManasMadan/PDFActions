@@ -9,12 +9,13 @@ export default async function PDFTools({ lang }) {
     <section className="container mt-20 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
       {home_page.pdf_tools.map((details, index) => (
         <MotionDivWrapper
-          initial={{ opacity: 0, transform: "translate(300px,0px)" }}
+          initial={{ opacity: 0, transform: "translate(50px,0px)" }}
           final={{ opacity: 1, transform: "translate(0px,0px)" }}
           once
           delay={index * 0.01}
+          key={details.icon}
         >
-          <PDFToolCard details={details} key={details.icon} />
+          <PDFToolCard details={details} />
         </MotionDivWrapper>
       ))}
     </section>

@@ -14,7 +14,12 @@ export default function PDFToolCard({ details }) {
         )}
       >
         <div className="flex flex-col items-center gap-4 rounded-xl border-2 border-white py-6 transition-all">
-          <Image src={details.icon} width={32} height={32} alt={details.text} />
+          <Image
+            src={details.icon}
+            width={32}
+            height={32}
+            alt={details.text + "Icon"}
+          />
           <p className="text-xl">{details.text}</p>
         </div>
       </div>

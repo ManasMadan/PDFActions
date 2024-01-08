@@ -8,7 +8,7 @@ import MotionDivWrapper from "./MotionDivWrapper";
 function WhyUseCard({ details }) {
   return (
     <div className="b-red-900 relative flex w-fit max-w-[450px] md:max-w-none">
-      <img src="/images/background.png" />
+      <img src="/images/background.png" alt="border-image" />
       <div className="absolute -top-[15%] left-4 grid aspect-square w-[15%] place-items-center rounded-xl bg-[#E9B4BF] mobile:left-10">
         <div className="relative aspect-square w-4/5">
           <Image src={details.icon} fill={true} alt={details.title} />
@@ -42,19 +42,19 @@ export default async function WhyUse({ lang }) {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-12 sm:gap-16 md:grid-cols-2">
-        {[0, 1, 2, 3].map((index) => (
+        {reasons.map((reason, index) => (
           <MotionDivWrapper
             delay={index * 0.1}
-            key={reasons[index].icon}
+            key={reason.icon}
             initial={{
               opacity: 0,
-              transform: `translate(${index % 2 ? 300 : -300}px,0px)`,
+              transform: `translate(${index % 2 ? 50 : -50}px,0px)`,
             }}
             final={{ opacity: 1, transform: "translate(0px,0px)" }}
             once
           >
             <div className={cn("flex", { "justify-end": index % 2 })}>
-              <WhyUseCard details={reasons[index]} />
+              <WhyUseCard details={reason} />
             </div>
           </MotionDivWrapper>
         ))}

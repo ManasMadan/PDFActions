@@ -9,7 +9,7 @@ export default function Navbar() {
       <LogoComponent className="text-white" />
       <nav>
         <ul className="flex items-center gap-8">
-          <li>
+          <li className="hidden sm:block">
             <Link
               className="flex items-center gap-2 text-white underline decoration-dotted underline-offset-4"
               href="https://www.npmjs.com/package/pdf-actions"
