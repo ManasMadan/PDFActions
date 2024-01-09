@@ -1,6 +1,10 @@
 {
   "appname": "PDFActions",
   "home_page": {
+    "landing_section": {
+      "hero_text_1": "Your Doc",
+      "hero_text_2": "Your Rules..."
+    },
     "pdf_tools": [
       {
         "icon": "/icons/pdf_tools/merge.png",

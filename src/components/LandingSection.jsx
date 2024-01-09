@@ -1,15 +1,17 @@
 import React from "react";
 import Navbar from "./Navbar";
 import styles from "@/styles/landingsection.module.css";
+import { getDictionary } from "@/lib/dictionary";
 
-export default function LandingSection() {
+export default async function LandingSection({ lang }) {
+  const { home_page } = await getDictionary(lang);
   return (
     <section className="bg-primary pt-8">
       <Navbar />
       <div className="container flex flex-col-reverse items-center gap-10 sm:flex-row sm:justify-between">
-        <div className="flex flex-row flex-wrap justify-center gap-x-2 text-2xl text-white mobile:text-3xl sm:flex-col sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-          <h1>Your Doc</h1>
-          <h1>Your Rules...</h1>
+        <div className="flex flex-row flex-wrap justify-center gap-2 text-2xl text-white mobile:text-3xl sm:flex-col sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+          <h1>{home_page.landing_section.hero_text_1}</h1>
+          <h1>{home_page.landing_section.hero_text_2}</h1>
         </div>
         <VectorComponent className="aspect-square w-full max-w-[500px] sm:w-1/2" />
       </div>

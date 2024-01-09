@@ -1,6 +1,10 @@
 {
   "appname": "PDFActions",
   "home_page": {
+    "landing_section": {
+      "hero_text_1": "आपका दस्तावेज़",
+      "hero_text_2": "आपके नियम..."
+    },
     "pdf_tools": [
       {
         "icon": "/icons/pdf_tools/merge.png",
