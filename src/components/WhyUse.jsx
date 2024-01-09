@@ -8,7 +8,7 @@ import MotionDivWrapper from "./MotionDivWrapper";
 function WhyUseCard({ details }) {
   return (
     <div className="b-red-900 relative flex w-fit max-w-[450px] md:max-w-none">
-      <img src="/images/background.png" alt="border-image" />
+      <img src="/images/why_use_background.png" alt="border-image" />
       <div className="absolute -top-[15%] left-4 grid aspect-square w-[15%] place-items-center rounded-xl bg-[#E9B4BF] mobile:left-10">
         <div className="relative aspect-square w-4/5">
           <Image src={details.icon} fill={true} alt={details.title} />
