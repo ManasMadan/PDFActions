@@ -27,7 +27,12 @@ async function FooterTop({ lang }) {
           <h1 className="text-lg">{home_page.footer.top.powered_by}</h1>
           <ul className="grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
             {powered_by.map(({ link, image }) => (
-              <Link href={link} className="flex justify-end" key={image}>
+              <Link
+                href={link}
+                className="flex justify-end"
+                key={image}
+                target="_blank"
+              >
                 <li className="w-full">
                   <img
                     src={`/images/powered_by/${image}.png`}

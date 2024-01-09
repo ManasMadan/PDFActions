@@ -24,6 +24,8 @@ export default function DeveloperCard({ details }) {
         <p>{tagline.last}</p>
       </div>
       <Link
+        onClick={(e) => e.stopPropagation()}
+        target="_blank"
         href={"mailto:" + email}
         className="w-11/12 max-w-fit overflow-hidden text-ellipsis rounded-lg bg-primary px-2 py-1 text-center text-[8px] text-white sm:text-[10px]"
       >
@@ -32,7 +34,11 @@ export default function DeveloperCard({ details }) {
       <ul className="flex items-center justify-center gap-4">
         {social_links.map(({ icon, link }) => (
           <li key={icon}>
-            <Link href={link}>
+            <Link
+              href={link}
+              target="_blank"
+              onClick={(e) => e.stopPropagation()}
+            >
               <Image src={icon} width={20} height={20} alt={link} />
             </Link>
           </li>

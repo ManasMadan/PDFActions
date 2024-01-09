@@ -11,6 +11,7 @@ export default function Navbar() {
         <ul className="flex items-center gap-8">
           <li className="hidden sm:block">
             <Link
+              target="_blank"
               className="flex items-center gap-2 text-white underline decoration-dotted underline-offset-4"
               href="https://www.npmjs.com/package/pdf-actions"
             >
