@@ -1,0 +1,8 @@
+.spacer {
+  aspect-ratio: 1440/130;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/images/landing_page_background.svg");
+}
