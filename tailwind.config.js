@@ -16,7 +16,10 @@ module.exports = {
         "2xl": "6rem",
       },
     },
-    extend: { colors: { primary: "#DC143C" }, screens: { mobile: "400px" } },
+    extend: {
+      colors: { primary: "#DC143C" },
+      screens: { small_mobile: "320px", mobile: "400px" },
+    },
   },
   plugins: [],
 };

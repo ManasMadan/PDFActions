@@ -5,11 +5,11 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="container flex flex-wrap items-center justify-between gap-2">
-      <LogoComponent className="grow text-center leading-none text-white mobile:grow-0" />
+    <header className="small_mobile:flex-row flex flex-col items-center justify-between gap-2 px-4 sm:container mobile:px-6">
+      <LogoComponent className="text-center leading-none text-white" />
       <Link
         target="_blank"
-        className="flex grow items-center justify-center gap-2 pb-1 text-white underline decoration-dotted underline-offset-4 mobile:grow-0"
+        className="flex items-center justify-center gap-2 pb-1 text-white underline decoration-dotted underline-offset-4"
         href="https://www.npmjs.com/package/pdf-actions"
       >
         Try Our SDK

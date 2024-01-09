@@ -203,5 +203,9 @@
     "redirecting_in": "Redirecting in",
     "countdown_array": ["5", "4", "3", "2", "1", "0"],
     "seconds": "seconds"
+  },
+  "privacy_page": {
+    "title": "Privacy Policy",
+    "description": "We value your privacy"
   }
 }
