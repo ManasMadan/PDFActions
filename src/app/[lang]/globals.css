@@ -8,11 +8,11 @@
 
 html {
   background-color: var(--primary);
-  width: 100vw;
+  width: 100dvw;
   overflow-x: hidden;
 }
 body {
   background-color: #fff;
-  width: 100vw;
+  width: 100dvw;
   overflow-x: hidden;
 }

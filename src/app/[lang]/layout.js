@@ -1,6 +1,5 @@
 import "./globals.css";
 import { i18n } from "@/i18n.config";
-import Footer from "@/components/Footer.jsx";
 import { Kadwa } from "next/font/google";
 
 const kadwa = Kadwa({
@@ -23,7 +22,6 @@ export default function RootLayout({ children, params }) {
     <html lang={params.lang}>
       <body className={kadwa.className}>
         <main>{children}</main>
-        <Footer lang={params.lang} />
       </body>
     </html>
   );

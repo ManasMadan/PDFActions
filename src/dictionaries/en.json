@@ -190,5 +190,14 @@
         "privacy_policy": "Privacy Policy"
       }
     }
+  },
+  "not_found_page": {
+    "image": "/images/404.png",
+    "title": "Page Not Found",
+    "description": "The page you are looking for might have been removed had its name changed or is temporarily unavailable.",
+    "button_text": "Home Page",
+    "redirecting_in": "Redirecting in",
+    "countdown_array": ["5", "4", "3", "2", "1", "0"],
+    "seconds": "seconds"
   }
 }

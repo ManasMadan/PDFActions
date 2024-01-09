@@ -32,7 +32,7 @@ export default async function WhyUse({ lang }) {
   return (
     <section className="container my-20">
       <div className="relative mb-8 flex justify-center gap-2 text-2xl mobile:mb-24 sm:text-3xl xl:text-4xl">
-        <div className="absolute top-1/2 h-1 w-0 translate-y-[-50%] rounded-full bg-[#00000033] mobile:w-[90vw] sm:w-full"></div>
+        <div className="absolute top-1/2 h-1 w-0 translate-y-[-50%] rounded-full bg-[#00000033] mobile:w-[90dvw] sm:w-full"></div>
         <div className="z-10 flex flex-wrap justify-center bg-white px-8 text-2xl sm:text-3xl xl:text-4xl">
           {home_page.why_use.title}
           <LogoComponent
