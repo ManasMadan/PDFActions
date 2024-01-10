@@ -218,5 +218,99 @@
     "para5": "PDFActions may share user information with trusted third-party services to improve functionality, conduct analytics, or provide support. These third parties are required to maintain privacy standards. PDFActions does not sell or share personal information for external marketing without user consent. It's advisable to review our Privacy Policy for a thorough understanding of how third-party disclosures are handled",
     "title6": "Advertising Partners Privacy Policy",
     "para6": "PDFActions may engage with advertising partners to display relevant ads and support the platform's services. These partners may use cookies and similar technologies to collect user data for targeted advertising. PDFActions does not disclose personal information for advertising purposes without user consent. Users can refer to the Privacy Policy for detailed information on how advertising partnerships impact data collection and usage on the platform."
+  },
+  "pdf_tools_page": {
+    "title": "PDF Tools",
+    "description": "All Awsome Tools Below !"
+  },
+  "pdf_tools_data": {
+    "merge": {
+      "title": "Merge PDF",
+      "description": "Merge Multiple PDF Files Together"
+    },
+    "split": {
+      "title": "Split PDF",
+      "description": "Divide PDF Files into Separate Documents"
+    },
+    "rotate": {
+      "title": "Rotate PDF",
+      "description": "Rotate Pages in PDF Files"
+    },
+    "image_to_pdf": {
+      "title": "Image to PDF",
+      "description": "Convert Images into PDF Documents"
+    },
+    "add_page_number": {
+      "title": "Add Page Number",
+      "description": "Insert Page Numbers into PDF Files"
+    },
+    "resize": {
+      "title": "Resize PDF",
+      "description": "Adjust the Dimensions of PDF Pages"
+    },
+    "add_margin": {
+      "title": "Add Margin",
+      "description": "Apply Margins to PDF Pages"
+    },
+    "combine_pages": {
+      "title": "Combine Pages",
+      "description": "Merge and Arrange Pages in PDF Files"
+    },
+    "extract_pages": {
+      "title": "Extract Pages",
+      "description": "Isolate and Save Specific Pages from PDFs"
+    },
+    "remove_pages": {
+      "title": "Remove Pages",
+      "description": "Delete Unwanted Pages from PDF Documents"
+    },
+    "reorder_pages": {
+      "title": "Reorder Pages",
+      "description": "Change the Sequence of Pages in PDFs"
+    },
+    "rotate_pages": {
+      "title": "Rotate Pages",
+      "description": "Adjust the Orientation of Individual Pages in PDFs"
+    },
+    "extract_images": {
+      "title": "Extract Images",
+      "description": "Retrieve Images Embedded in PDF Documents"
+    },
+    "break_pdf": {
+      "title": "Break PDF",
+      "description": "Divide PDF Files into Smaller Parts"
+    },
+    "flatten_forms": {
+      "title": "Flatten Forms",
+      "description": "Flatten Fillable Forms in PDFs"
+    },
+    "edit_metadata": {
+      "title": "Edit Metadata",
+      "description": "Modify Document Information and Properties"
+    },
+    "remove_metadata": {
+      "title": "Remove Metadata",
+      "description": "Eliminate Metadata from PDF Files"
+    },
+    "compress": {
+      "title": "Compress PDF",
+      "description": "Reduce File Size of PDF Documents"
+    },
+    "html_to_pdf": {
+      "title": "HTML to PDF",
+      "description": "Convert HTML Content into PDF Documents"
+    },
+    "watermark": {
+      "title": "Watermark PDF",
+      "description": "Add Watermarks to PDF Pages for Security or Branding"
+    },
+    "unlock": {
+      "title": "Unlock PDF",
+      "description": "Remove Restrictions and Unlock Password-Protected PDFs"
+    },
+    "protect": {
+      "title": "Protect PDF",
+      "description": "Secure PDF Documents with Passwords and Permissions"
+    }
   }
 }
