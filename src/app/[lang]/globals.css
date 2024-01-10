@@ -15,4 +15,5 @@ body {
   background-color: #fff;
   width: 100dvw;
   overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
