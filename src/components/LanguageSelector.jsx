@@ -18,10 +18,11 @@ export default function LanguageSelector() {
   return (
     <>
       <label htmlFor="language_selector" className="hidden">
-        Option name
+        Select Language
       </label>
 
       <select
+        aria-label="Select Language"
         id="language_selector"
         className="rounded-lg border-r-8 border-transparent px-4 text-[#666666]"
         onChange={(e) => router.push(redirectedPathName(e.target.value))}
