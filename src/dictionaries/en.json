@@ -206,6 +206,17 @@
   },
   "privacy_page": {
     "title": "Privacy Policy",
-    "description": "We value your privacy"
+    "description": "We value your privacy",
+    "para1": "PDFActions is a platform designed to offer a variety of PDF tools, including features such as merging PDFs, splitting PDFs, and numerous other functionalities, aimed at enhancing users' PDF management experience Our objective is to provide users with efficient and user-friendly tools for handling PDF documents, ensuring convenience and versatility in managing their digital files. By accessing and utilizing the services provided on our website, you agree to abide by the terms outlined in this Privacy Policy. We are committed to safeguarding your privacy and ensuring the security of your personal information.",
+    "title2": "Information We Collect",
+    "para2": "PDFActions collects personal information such as names, email addresses, and contact details. User account data, including encrypted passwords, is also stored. Additionally, device information, browsing patterns, and communication records may be collected for analytics and customization purposes. The platform uses cookies and similar technologies to enhance user experience. All data collection is conducted in accordance with privacy laws and regulations.",
+    "title3": "How We Use Your Information",
+    "para3": "We use the information collected on PDFActions for purposes such as improving user experience, providing personalized content, responding to inquiries, and ensuring the security of user accounts. This data may also be utilized for website analytics, optimizing services, and, where applicable, facilitating communication between users. Rest assured, all usage of information complies with relevant privacy laws and regulations.",
+    "title4": "Security Protocols",
+    "para4": "PDFActions prioritizes user data security with encryption, SSL technology, and strict access controls. Regular backups, firewall protection, and security audits bolster resilience against potential threats. User education on security practices and evaluations of third-party services further contribute to a secure online environment. Continuous updates ensure the platform's robust defense against evolving cybersecurity challenges. Refer to the Privacy Policy for more details on our security measures.",
+    "title5": "Third Party Disclosure",
+    "para5": "PDFActions may share user information with trusted third-party services to improve functionality, conduct analytics, or provide support. These third parties are required to maintain privacy standards. PDFActions does not sell or share personal information for external marketing without user consent. It's advisable to review our Privacy Policy for a thorough understanding of how third-party disclosures are handled",
+    "title6": "Advertising Partners Privacy Policy",
+    "para6": "PDFActions may engage with advertising partners to display relevant ads and support the platform's services. These partners may use cookies and similar technologies to collect user data for targeted advertising. PDFActions does not disclose personal information for advertising purposes without user consent. Users can refer to the Privacy Policy for detailed information on how advertising partnerships impact data collection and usage on the platform."
   }
 }
