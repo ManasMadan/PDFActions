@@ -22,7 +22,7 @@ export default async function page({ params }) {
         title={pdf_tools_data[tool].title}
         description={pdf_tools_data[tool].description}
       />
-      <UploadProcessFiles lang={lang} />
+      <UploadProcessFiles tool={tool} />
       <WhyUse lang={lang} />
       <Footer lang={lang} />
     </section>

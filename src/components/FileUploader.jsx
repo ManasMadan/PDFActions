@@ -1,27 +1,48 @@
-// import { getDictionary } from "@/lib/dictionary";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useDictionary } from "../lib/DictionaryProviderClient";
+import styles from "@/styles/fileuploader.module.css";
 
-export default function FileUploader({ setFiles, lang }) {
+export default function FileUploader({
+  setFiles,
+  dropZoneProps,
+  preProcessFile,
+}) {
   const { file_uploader } = useDictionary();
+  const [preprocessingFiles, setPreprocessingFiles] = useState(false);
+
   const onDrop = useCallback((acceptedFiles) => {
-    setFiles(acceptedFiles);
+    setPreprocessingFiles(true);
+    const promises = acceptedFiles.map(async (file) => {
+      await preProcessFile(file);
+    });
+    Promise.all(promises)
+      .then(() => {
+        setFiles(acceptedFiles);
+        setPreprocessingFiles(false);
+      })
+      .catch((error) => {
+        console.error("Something Went Wrong while pre processing files", error);
+        alert("Something Went Wrong");
+      });
   }, []);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
+    ...dropZoneProps,
   });
 
   return (
-    <div className="mt-20 cursor-pointer" {...getRootProps()}>
+    <div className="h-full cursor-pointer" {...getRootProps()}>
       <input {...getInputProps()} />
       <div
         className={cn(
-          "grid h-[600px] place-items-center rounded-xl border-4 border-dotted border-primary p-1",
+          "grid h-full place-items-center rounded-xl border-4 border-dotted border-primary p-1",
           { "bg-primary": isDragActive },
           { "bg-[#E9B4BF42]": !isDragActive },
+          preprocessingFiles && styles["wrapper"],
         )}
       >
         <div
@@ -29,7 +50,12 @@ export default function FileUploader({ setFiles, lang }) {
             hidden: isDragActive,
           })}
         >
-          <Image src="/icons/file_uploader.png" width={64} height={64} />
+          <Image
+            src="/icons/file_uploader.png"
+            width={64}
+            height={64}
+            alt="File Upload Icon"
+          />
           <div className="text-center text-[#00000080]">
             <p>{file_uploader.drop_files}</p>
             <p>{file_uploader.or}</p>

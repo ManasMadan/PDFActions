@@ -1,0 +1,29 @@
+.wrapper {
+  --animation-speed-factor: 20;
+
+  border-style: solid;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffffff,
+    #ffffff 50px,
+    var(--primary) 0px,
+    var(--primary) 150px
+  );
+  background-size: calc(var(--animation-speed-factor) * 500px) 100%;
+  animation: AnimationName calc(1s * var(--animation-speed-factor)) linear
+    infinite;
+  background-repeat: repeat-x;
+}
+
+.wrapper > * {
+  display: none;
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: -33% 50%;
+  }
+}
