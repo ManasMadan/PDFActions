@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.2",
+    "@vercel/analytics": "^1.1.1",
+    "@vercel/speed-insights": "^1.0.2",
     "clsx": "^2.1.0",
     "framer-motion": "^10.17.9",
     "negotiator": "^0.6.3",
