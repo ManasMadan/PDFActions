@@ -4,8 +4,6 @@ import { i18n } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import { Kadwa } from "next/font/google";
 import Head from "next/head";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 
 const kadwa = Kadwa({
   subsets: ["latin"],
@@ -34,8 +32,6 @@ export default async function RootLayout({ children, params }) {
         <DictionaryProvider dictionary={dictionary}>
           <main>{children}</main>
         </DictionaryProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
