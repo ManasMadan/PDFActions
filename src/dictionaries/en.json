@@ -312,5 +312,11 @@
       "title": "Protect PDF",
       "description": "Secure PDF Documents with Passwords and Permissions"
     }
+  },
+  "file_uploader": {
+    "drop_files": "Drop File(s) Here",
+    "or": "or",
+    "browse": "Browse Files",
+    "release": "Release Here !"
   }
 }

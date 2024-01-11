@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import LandingSection from "@/components/LandingSection";
+import UploadProcessFiles from "@/components/UploadProcessFiles";
 import WhyUse from "@/components/WhyUse";
 import { getDictionary } from "@/lib/dictionary";
 import React from "react";
@@ -16,13 +17,14 @@ export default async function page({ params }) {
   const { pdf_tools_data } = await getDictionary(lang);
 
   return (
-    <>
+    <section>
       <LandingSection
         title={pdf_tools_data[tool].title}
         description={pdf_tools_data[tool].description}
       />
+      <UploadProcessFiles lang={lang} />
       <WhyUse lang={lang} />
       <Footer lang={lang} />
-    </>
+    </section>
   );
 }
