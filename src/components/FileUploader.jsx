@@ -5,13 +5,17 @@ import { useDropzone } from "react-dropzone";
 import { useDictionary } from "../lib/DictionaryProviderClient";
 import styles from "@/styles/fileuploader.module.css";
 
-export default function FileUploader({ setFiles, dropZoneProps, onDropFiles }) {
+export default function FileUploader({
+  setFiles,
+  dropZoneProps,
+  preProcessFiles,
+}) {
   const { file_uploader } = useDictionary();
   const [preprocessingFiles, setPreprocessingFiles] = useState(false);
 
   const onDrop = useCallback(async (acceptedFiles) => {
     setPreprocessingFiles(true);
-    const files = await onDropFiles(acceptedFiles);
+    const files = await preProcessFiles(acceptedFiles);
     setFiles(files);
     setPreprocessingFiles(false);
   }, []);
