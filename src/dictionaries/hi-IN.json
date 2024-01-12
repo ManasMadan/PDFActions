@@ -184,7 +184,11 @@
               },
               {
                 "icon": "/icons/socials/dribbble.png",
-                "link": "https://www.linkedin.com/in/ayush-arora4/"
+                "link": "https://dribbble.com/ayu4"
+              },
+              {
+                "icon": "/icons/socials/behance.png",
+                "link": "https://www.behance.net/ayusharora12"
               }
             ]
           }
