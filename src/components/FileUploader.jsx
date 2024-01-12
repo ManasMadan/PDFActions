@@ -5,28 +5,15 @@ import { useDropzone } from "react-dropzone";
 import { useDictionary } from "../lib/DictionaryProviderClient";
 import styles from "@/styles/fileuploader.module.css";
 
-export default function FileUploader({
-  setFiles,
-  dropZoneProps,
-  preProcessFile,
-}) {
+export default function FileUploader({ setFiles, dropZoneProps, onDropFiles }) {
   const { file_uploader } = useDictionary();
   const [preprocessingFiles, setPreprocessingFiles] = useState(false);
 
-  const onDrop = useCallback((acceptedFiles) => {
+  const onDrop = useCallback(async (acceptedFiles) => {
     setPreprocessingFiles(true);
-    const promises = acceptedFiles.map(async (file) => {
-      await preProcessFile(file);
-    });
-    Promise.all(promises)
-      .then(() => {
-        setFiles(acceptedFiles);
-        setPreprocessingFiles(false);
-      })
-      .catch((error) => {
-        console.error("Something Went Wrong while pre processing files", error);
-        alert("Something Went Wrong");
-      });
+    const files = await onDropFiles(acceptedFiles);
+    setFiles(files);
+    setPreprocessingFiles(false);
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({

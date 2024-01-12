@@ -1,201 +1,126 @@
+const acceptPDFFilesProps = {
+  accept: {
+    "application/pdf": [".pdf"],
+  },
+};
+const acceptJPEGFilesProps = {
+  accept: {
+    "image/jpeg": [],
+  },
+};
+const acceptHTMLFilesProps = {
+  accept: {
+    "application/html": [".html"],
+  },
+};
+const doNotAcceptMultipleProps = {
+  multiple: true,
+};
+
+const onDropFiles = async (acceptedFiles) => {
+  const promises = acceptedFiles.map(async (file) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+  });
+  let files = [];
+  await Promise.all(promises)
+    .then(() => {
+      files = acceptedFiles;
+    })
+    .catch((error) => {
+      console.error("Something Went Wrong while pre processing files", error);
+      alert("Something Went Wrong");
+    });
+  return files;
+};
+
 const pdftoolsconfig = {
   merge: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   split: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   rotate: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   image_to_pdf: {
-    dropZoneProps: {
-      accept: {
-        "image/jpeg": [],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptJPEGFilesProps,
+    onDropFiles: onDropFiles,
   },
   add_page_number: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: false,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: { ...acceptPDFFilesProps, ...doNotAcceptMultipleProps },
+    onDropFiles: onDropFiles,
   },
   resize: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: false,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: { ...acceptPDFFilesProps, ...doNotAcceptMultipleProps },
+    onDropFiles: onDropFiles,
   },
   add_margin: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   combine_pages: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   extract_pages: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   remove_pages: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   reorder_pages: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   rotate_pages: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   extract_images: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   break_pdf: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: false,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: { ...acceptPDFFilesProps, ...doNotAcceptMultipleProps },
+    onDropFiles: onDropFiles,
   },
   flatten_forms: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   edit_metadata: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: false,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: { ...acceptPDFFilesProps, ...doNotAcceptMultipleProps },
+    onDropFiles: onDropFiles,
   },
   remove_metadata: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   compress: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   html_to_pdf: {
-    dropZoneProps: {
-      accept: {
-        "application/html": [".html"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptHTMLFilesProps,
+    onDropFiles: onDropFiles,
   },
   watermark: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
   unlock: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: false,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: { ...acceptPDFFilesProps, ...doNotAcceptMultipleProps },
+    onDropFiles: onDropFiles,
   },
   protect: {
-    dropZoneProps: {
-      accept: {
-        "application/pdf": [".pdf"],
-      },
-      multiple: true,
-    },
-    preProcessFile: () => new Promise((resolve) => setTimeout(resolve, 2000)),
+    dropZoneProps: acceptPDFFilesProps,
+    onDropFiles: onDropFiles,
   },
 };
 
