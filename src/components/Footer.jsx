@@ -5,6 +5,7 @@ import { getDictionary } from "@/lib/dictionary";
 import CustomLink from "./CustomLinkComponent";
 import Link from "next/link";
 import Developers from "./Developers";
+import Image from "next/image";
 
 async function FooterTop({ lang }) {
   const { home_page } = await getDictionary(lang);
@@ -25,14 +26,19 @@ async function FooterTop({ lang }) {
         <Developers developers={home_page.footer.top.developers} />
         <div className="w-full max-w-[400px]">
           <h1 className="text-lg">{home_page.footer.top.powered_by}</h1>
-          <ul className="grid grid-cols-4 gap-4 sm:grid-cols-1 md:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-4 small_mobile:grid-cols-2 sm:max-w-[300px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
             {powered_by.map(({ link, image }) => (
-              <li className="w-full" key={image}>
+              <li
+                className="relative h-[40px] small_mobile:max-w-[200px]"
+                key={image}
+              >
                 <Link href={link} className="flex justify-end" target="_blank">
-                  <img
+                  <Image
                     src={`/images/powered_by/${image}.png`}
                     className="h-full w-full object-contain"
                     alt={image}
+                    layout="fill"
+                    objectFit="contain"
                   />
                 </Link>
               </li>
