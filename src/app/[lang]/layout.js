@@ -16,6 +16,7 @@ export const metadata = {
     "PDFActions provides free and secure platform for your PDF needs without uploading, with no watermarks & completely free!",
 };
 
+export const dynamicParams = false;
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
