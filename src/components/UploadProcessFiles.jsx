@@ -8,13 +8,6 @@ import AddFilesButton from "./AddFilesButton";
 
 export default function UploadProcessFiles({ tool }) {
   const config = pdftoolsconfig[tool];
-  if (config === undefined) {
-    return (
-      <div className="container mt-20 text-center text-2xl font-black underline">
-        Under Construction
-      </div>
-    );
-  }
   const [files, setFiles] = useState([]);
 
   return (
