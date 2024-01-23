@@ -37,8 +37,8 @@ async function FooterTop({ lang }) {
                     src={`/images/powered_by/${image}.png`}
                     className="h-full w-full object-contain"
                     alt={image}
-                    layout="fill"
-                    objectFit="contain"
+                    fill
+                    style={{ objectFit: "contain" }}
                   />
                 </Link>
               </li>
