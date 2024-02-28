@@ -148,7 +148,7 @@
         "about_us_text": "Welcome to PDFActions - your secure, hassle-free PDF solution. Process files in your browser with no data uploads. Works on Windows, Mac, Linux, and mobile devices. Simplify your PDF tasks with us!",
         "developers": [
           {
-            "avatar": "/images/developers/manas.png",
+            "avatar": "/images/developers/manas.svg",
             "name": "Manas Madan",
             "position": "Web Developer",
             "tagline": { "first": "Code Maestro,", "last": "Web Wizard" },
@@ -166,10 +166,17 @@
                 "icon": "/icons/socials/website.png",
                 "link": "https://linktr.ee/manasmadan"
               }
+            ],
+            "resume": "https://drive.google.com/drive/folders/1-0qjjTasKUQHoFr5qiZEveBnSWnBltcd",
+            "description": "Hardworking and reliable web developer committed to exceeding expectations in team collaboration and customer satisfaction. Currently engaged in a self-taught process to elevate my skills and provide top-notch solutions. Motivated to consistently learn and evolve as a web development professional.",
+            "skills": [
+              { "title": "Web Development", "score": 0.9 },
+              { "title": "Product Design", "score": 0.8 },
+              { "title": "Developer Tools", "score": 0.8 }
             ]
           },
           {
-            "avatar": "/images/developers/ayush.png",
+            "avatar": "/images/developers/ayush.svg",
             "name": "Ayush Arora",
             "position": "UI/UX Designer",
             "tagline": { "first": "Design Dynamo,", "last": "Pixel Pioneer" },
@@ -187,9 +194,21 @@
                 "icon": "/icons/socials/behance.png",
                 "link": "https://www.behance.net/ayusharora12"
               }
+            ],
+            "resume": "https://drive.google.com/drive/folders/10zJ3P_8jXXMYU5L5ev5yiGDbggkmnxTi",
+            "description": "Hardworking and reliable UI/UXdesigner focused on going above and beyond to support teams and serve customers. Currently undergoing a self-taught process to enable me offer top-notch abilities. Motivated to continue to learn and grow as a product design professional.",
+            "skills": [
+              { "title": "UX Research", "score": 0.9 },
+              { "title": "UI Design", "score": 0.8 },
+              { "title": "Typography, Color Theory", "score": 0.8 }
             ]
           }
         ],
+        "big_developer_card": {
+          "resume": "Resume",
+          "hire_me": "Hire Me",
+          "skills": "Skills"
+        },
         "powered_by": "Powered By"
       },
       "bottom": {

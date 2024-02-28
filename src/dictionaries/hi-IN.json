@@ -148,7 +148,7 @@
         "about_us_text": "PDFActions में आपका स्वागत है - आपका सुरक्षित, परेशानी मुक्त पीडीएफ समाधान. अपने ब्राउज़र में फ़ाइलों को संख्या के साथ संसाधित करें डेटा अपलोड. विंडोज़, मैक, लिनक्स और पर काम करता है मोबाइल उपकरणों। हमारे साथ अपने पीडीएफ कार्यों को सरल बनाएं!",
         "developers": [
           {
-            "avatar": "/images/developers/manas.png",
+            "avatar": "/images/developers/manas.svg",
             "name": "मानस मदान",
             "position": "वेब डेवलपर",
             "tagline": { "first": "कोड मेस्ट्रो,", "last": "वेब विज़ार्ड" },
@@ -166,10 +166,17 @@
                 "icon": "/icons/socials/website.png",
                 "link": "https://linktr.ee/manasmadan"
               }
+            ],
+            "resume": "https://drive.google.com/drive/folders/1-0qjjTasKUQHoFr5qiZEveBnSWnBltcd",
+            "description": "कटिबद्ध और विश्वसनीय वेब डेवलपर जो टीम में सहयोग और ग्राहक संतोष में उत्कृष्टता की उम्मीदों को पार करने के लिए प्रतिबद्ध है। वर्तमान में, अपनी कौशल्य स्तर को उच्च करने और श्रेष्ठ समाधान प्रदान करने के लिए आत्मशिक्षित प्रक्रिया में लगा हुआ हूँ। वेब डेवलपमेंट पेशेवर के रूप में निरंतर सीखने और विकसित होने के लिए प्रेरित हूँ।",
+            "skills": [
+              { "title": "वेब डेवेलपमेंट", "score": 0.9 },
+              { "title": "प्रोडक्ट डिज़ाइन", "score": 0.8 },
+              { "title": "डेवेलपर टूल्स", "score": 0.8 }
             ]
           },
           {
-            "avatar": "/images/developers/ayush.png",
+            "avatar": "/images/developers/ayush.svg",
             "name": "आयुष अरोड़ा",
             "position": "UI/UX डिजाइनर",
             "tagline": {
@@ -190,9 +197,21 @@
                 "icon": "/icons/socials/behance.png",
                 "link": "https://www.behance.net/ayusharora12"
               }
+            ],
+            "resume": "https://drive.google.com/drive/folders/10zJ3P_8jXXMYU5L5ev5yiGDbggkmnxTi",
+            "description": "मेहनती और विश्वसनीय UI/UX डिज़ाइनर जो टीमों का समर्थन करने और ग्राहकों की सेवा करने के लिए उत्कृष्टता की ओर ध्यान केंद्रित किया है। वर्तमान में, शीर्ष क्षमताओं की पेशकश करने के लिए आत्मशिक्षित प्रक्रिया में शामिल हूँ। उत्पाद डिज़ाइन पेशेवर के रूप में सीखते और विकसित होने के लिए प्रेरित हूँ।",
+            "skills": [
+              { "title": "UX अनुसंधान", "score": 0.9 },
+              { "title": "UI डिज़ाइन", "score": 0.8 },
+              { "title": "टाइपोग्राफी, रंग सिद्धांत", "score": 0.8 }
             ]
           }
         ],
+        "big_developer_card": {
+          "resume": "बायोडाटा",
+          "hire_me": "हायर करें",
+          "skills": "स्किल्स"
+        },
         "powered_by": "से संचालित"
       },
       "bottom": {

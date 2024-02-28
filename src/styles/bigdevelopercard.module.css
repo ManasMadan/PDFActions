@@ -1,0 +1,6 @@
+.score_progress_bar::-webkit-progress-bar {
+  background-color: #892836;
+}
+.score_progress_bar::-webkit-progress-value {
+  background-color: #ffffffcc;
+}

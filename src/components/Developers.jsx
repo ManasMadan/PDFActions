@@ -30,8 +30,8 @@ export default function Developers({ developers }) {
       ))}
       <AnimatePresence>
         {selectedId !== null && (
-          <motion.div
-            className="fixed left-0 top-0 z-50 h-screen w-screen bg-primary text-white"
+          <motion.section
+            className="fixed left-0 top-0 z-50 h-screen w-screen overflow-y-scroll bg-primary text-white"
             transition={{ duration: 0.2 }}
             layoutId={selectedId}
           >
@@ -40,7 +40,7 @@ export default function Developers({ developers }) {
               developer={selectedDeveloper}
               modalOpen={isModalOpen}
             />
-          </motion.div>
+          </motion.section>
         )}
       </AnimatePresence>
     </div>
