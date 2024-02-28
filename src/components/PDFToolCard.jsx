@@ -20,7 +20,7 @@ export default function PDFToolCard({ details }) {
             height={32}
             alt={details.text + "Icon"}
           />
-          <p className="text-xl">{details.text}</p>
+          <p className="text-center text-xl">{details.text}</p>
         </div>
       </div>
     </CustomLink>

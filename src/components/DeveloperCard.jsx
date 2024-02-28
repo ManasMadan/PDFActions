@@ -19,7 +19,7 @@ export default function DeveloperCard({ details }) {
         <h1 className="text-sm sm:text-base">{name}</h1>
         <p className="text-[10px] text-primary sm:text-sm">{position}</p>
       </div>
-      <div className="flex flex-col justify-center gap-[2px] text-[10px] text-[#00000099] mobile:flex-row md:text-xs">
+      <div className="flex flex-col justify-center gap-[2px] text-center text-[10px] text-[#00000099] mobile:flex-row md:text-xs">
         <p>{tagline.first}</p>
         <p>{tagline.last}</p>
       </div>

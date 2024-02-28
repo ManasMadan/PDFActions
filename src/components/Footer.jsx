@@ -55,7 +55,7 @@ async function FooterBottom({ lang }) {
   return (
     <section className="bg-primary text-white">
       <div className="container grid grid-cols-1 items-center py-3 lg:grid-cols-3 lg:py-6">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-center justify-between gap-y-4 small_mobile:flex-row">
           <CustomLink
             className="text-[#D3D3D3CC] transition-colors hover:text-[#FFFFFFCC] lg:text-lg"
             href="/privacy-policy"
