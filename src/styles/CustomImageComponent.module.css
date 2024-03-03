@@ -1,0 +1,9 @@
+.info_icon:hover + .info_container {
+  display: block;
+}
+.info_container {
+  display: none;
+}
+.info_container:hover {
+  display: block;
+}

@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import FileUploader from "./FileUploader";
 import pdftoolsconfig from "@/lib/pdftoolsconfig";
 import SortableList, { SortableItem } from "react-easy-sort";
 import { arrayMoveImmutable } from "array-move";
-import AddFilesButton from "./AddFilesButton";
+import GlassButton from "./GlassButton";
+import { useDropzone } from "react-dropzone";
 
 export default function UploadProcessFiles({ tool }) {
   const config = pdftoolsconfig[tool];
@@ -22,6 +23,18 @@ export default function UploadProcessFiles({ tool }) {
 }
 
 const ProcessFile = ({ files, setFiles, config }) => {
+  const onDrop = useCallback(async (acceptedFiles) => {
+    const newFiles = await config.preProcessFiles(acceptedFiles, files.length);
+    setFiles((files) => files.concat(newFiles));
+  }, []);
+  const { getInputProps, open } = useDropzone({
+    onDrop,
+    ...config.dropZoneProps,
+    noDrag: true,
+    noClick: true,
+    noKeyboard: true,
+  });
+
   const PreviewComponent = config.Preview;
   const FileExtra = config.FileExtra;
   const LeftExtra = config.LeftExtra;
@@ -29,38 +42,54 @@ const ProcessFile = ({ files, setFiles, config }) => {
     setFiles(arrayMoveImmutable(files, oldIndex, newIndex));
   };
 
+  const File = ({ file }) => (
+    <div className="rounded-lg bg-white p-2">
+      <PreviewComponent file={file} />
+      {FileExtra && <FileExtra file={file} />}
+    </div>
+  );
+
   return (
-    <div className="grid h-full grid-cols-1 overflow-y-hidden rounded-lg border-4 border-primary p-2 md:grid-cols-5">
-      <div className="col-span-2 bg-primary text-white">
-        <button
-          onClick={() => console.log(files.filter((file) => !file.deleted))}
+    <div className="grid h-full grid-cols-1 overflow-y-hidden rounded-lg border-4 border-primary md:grid-cols-5">
+      <input {...getInputProps()} />
+
+      <div className="col-span-2 flex flex-col gap-4 overflow-scroll bg-primary p-2 text-white">
+        <GlassButton
+          onClick={() =>
+            config.processor(files.filter((file) => !file.deleted))
+          }
         >
           Save and Download
-        </button>
-        {config.multiple && <AddFilesButton config={config} />}
-        {LeftExtra && <LeftExtra files={files} />}
+        </GlassButton>
+        {config.multiple && <GlassButton onClick={open}>Add Files</GlassButton>}
+        <div className="grow overflow-y-scroll">
+          {LeftExtra && (
+            <div className="rounded-md border-2 border-[#E9B4BF80] bg-[#FFFFFF42] py-3 shadow-lg shadow-[#FFFFFF42] backdrop-blur-sm">
+              <LeftExtra files={files} />
+            </div>
+          )}
+        </div>
+        <GlassButton onClick={() => setFiles([])}>Delete Files</GlassButton>
       </div>
 
       {config.reorder ? (
         <SortableList
           onSortEnd={onSortEnd}
-          className="col-span-3 grid h-full w-full grid-cols-1 gap-4 overflow-y-scroll px-4 mobile:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
+          className="col-span-3 grid h-full w-full grid-cols-1 gap-4 overflow-y-scroll bg-[#E9B4BF4D] p-2 px-4 mobile:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
         >
           {files.map((file) => (
             <SortableItem key={file.key}>
               <div id={"file_key_" + file.key}>
-                <PreviewComponent file={file} />
-                {FileExtra && <FileExtra file={file} />}
+                <File file={file} />
               </div>
             </SortableItem>
           ))}
         </SortableList>
       ) : (
-        <div className="col-span-3 grid h-full w-full grid-cols-1 gap-4 overflow-y-scroll px-4 mobile:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <div className="col-span-3 grid h-full w-full grid-cols-1 gap-4 overflow-y-scroll bg-[#E9B4BF4D] p-2 px-4 mobile:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {files.map((file) => (
             <div key={file.key} id={"file_key_" + file.key}>
-              <PreviewComponent file={file} />
-              {FileExtra && <FileExtra file={file} />}
+              <File file={file} />
             </div>
           ))}
         </div>

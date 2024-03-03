@@ -31,9 +31,8 @@ const preProcessFiles = async (acceptedFiles, startKeyFrom = 0) => {
   await initialisePDFJS();
 
   acceptedFiles.forEach((file, index) => {
-    file.loadedPreview = false;
     file.preview = () => imageURLFunction(file, 1);
-
+    file.imageData = null;
     file.key = index + startKeyFrom;
     file.rotate = 0;
     file.imageRef = null;
@@ -48,6 +47,7 @@ const pdftoolsconfig = {
     preProcessFiles: preProcessFiles,
     multiple: true,
     reorder: true,
+    processor: (files) => console.log(files),
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
       <div className="flex-col">
@@ -79,7 +79,7 @@ const pdftoolsconfig = {
         </button>
       </div>
     ),
-    LeftExtra: ({ files }) => null,
+    LeftExtra: null,
   },
 };
 
