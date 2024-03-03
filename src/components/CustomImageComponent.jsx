@@ -28,7 +28,7 @@ function CustomImageComponent({ file }) {
   return (
     <div className="relative mx-auto grid aspect-square w-[150px] place-items-center">
       <Image
-        className={cn("absolute right-0 top-0", styles.info_icon)}
+        className={cn("absolute right-0 top-0 z-40", styles.info_icon)}
         src="/icons/common/info.png"
         width={16}
         height={16}
@@ -36,7 +36,7 @@ function CustomImageComponent({ file }) {
       />
       <ul
         className={cn(
-          "absolute right-0 top-0 w-[150px] rounded-md bg-primary p-2 text-xs text-white",
+          "absolute right-0 top-0 z-50 w-[150px] rounded-md bg-primary p-2 text-xs text-white",
           styles["info_container"],
         )}
       >
@@ -51,7 +51,7 @@ function CustomImageComponent({ file }) {
         onDragStart={() => false}
         ref={ref}
         src="/icons/puff_loader.svg"
-        className="pointer-events-none transition-[rotate]"
+        className="pointer-events-none z-30 transition-[rotate]"
         width={100}
         height={100}
         alt={file.name}
