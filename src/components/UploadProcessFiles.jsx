@@ -63,11 +63,7 @@ const ProcessFile = ({ files, setFiles, config }) => {
         </GlassButton>
         {config.multiple && <GlassButton onClick={open}>Add Files</GlassButton>}
         <div className="grow overflow-y-scroll">
-          {LeftExtra && (
-            <div className="rounded-md border-2 border-[#E9B4BF80] bg-[#FFFFFF42] py-3 shadow-lg shadow-[#FFFFFF42] backdrop-blur-sm">
-              <LeftExtra files={files} />
-            </div>
-          )}
+          {LeftExtra && <LeftExtra files={files} />}
         </div>
         <GlassButton onClick={() => setFiles([])}>Delete Files</GlassButton>
       </div>

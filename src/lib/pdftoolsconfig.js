@@ -1,4 +1,8 @@
 import CustomImageComponent from "@/components/CustomImageComponent";
+import { FileRotate, FileDelete } from "@/components/FileComponents.jsx";
+import { LeftRotate } from "@/components/LeftComponents.jsx";
+import { saveAs } from "file-saver";
+import { createPDF, rotatePDF, pdfArrayToBlob, mergePDF } from "pdf-actions";
 
 let imageURLFunction;
 const acceptPDFFilesProps = {
@@ -47,39 +51,29 @@ const pdftoolsconfig = {
     preProcessFiles: preProcessFiles,
     multiple: true,
     reorder: true,
-    processor: (files) => console.log(files),
+    processor: async (files) => {
+      const pdfDocs = [];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const pdfFile = await createPDF.PDFDocumentFromFile(file);
+        let pdfToBeAdded = pdfFile;
+        if (file.degrees) {
+          pdfToBeAdded = await rotatePDF(pdfFile, file.degrees);
+        }
+        pdfDocs.push(pdfToBeAdded);
+        const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
+        const pdfBlob = pdfArrayToBlob(mergedPdfFile);
+        saveAs(pdfBlob, "merged.pdf");
+      }
+    },
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
       <div className="flex-col">
-        <div>
-          <button
-            onClick={() => {
-              file.rotate = file.rotate - 90;
-              file.imageRef.current.style.rotate = `${file.rotate}deg`;
-            }}
-          >
-            RL
-          </button>
-          <button
-            onClick={() => {
-              file.rotate = file.rotate + 90;
-              file.imageRef.current.style.rotate = `${file.rotate}deg`;
-            }}
-          >
-            RR
-          </button>
-        </div>
-        <button
-          onClick={() => {
-            file.deleted = true;
-            document.getElementById(`file_key_${file.key}`).remove();
-          }}
-        >
-          DEL
-        </button>
+        <FileRotate file={file} />
+        <FileDelete file={file} />
       </div>
     ),
-    LeftExtra: null,
+    LeftExtra: ({ files }) => <LeftRotate files={files} />,
   },
 };
 

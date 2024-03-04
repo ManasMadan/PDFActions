@@ -12,6 +12,7 @@ function CustomImageComponent({ file }) {
       ref.current.width = 150;
       ref.current.height = 150;
       file.imageRef = ref;
+      ref.current.style.rotate = `${file.rotate}deg`;
       return;
     }
     async function func() {
@@ -21,9 +22,9 @@ function CustomImageComponent({ file }) {
       ref.current.width = 150;
       ref.current.height = 150;
       file.imageRef = ref;
+      ref.current.style.rotate = `${file.rotate}deg`;
     }
     func();
-    console.log(file);
   }, []);
   return (
     <div className="relative mx-auto grid aspect-square w-[150px] place-items-center">
