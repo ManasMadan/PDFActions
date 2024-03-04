@@ -61,10 +61,10 @@ const pdftoolsconfig = {
           pdfToBeAdded = await rotatePDF(pdfFile, file.degrees);
         }
         pdfDocs.push(pdfToBeAdded);
-        const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
-        const pdfBlob = pdfArrayToBlob(mergedPdfFile);
-        saveAs(pdfBlob, "merged.pdf");
       }
+      const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
+      const pdfBlob = pdfArrayToBlob(mergedPdfFile);
+      saveAs(pdfBlob, "merged.pdf");
     },
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
