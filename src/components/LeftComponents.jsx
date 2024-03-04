@@ -1,8 +1,10 @@
 import React from "react";
 import GlassButton from "./GlassButton";
 import Image from "next/image";
+import { useDictionary } from "@/lib/DictionaryProviderClient";
 
 export function LeftRotate({ files }) {
+  const { pdf_tools } = useDictionary();
   return (
     <div className="flex flex-col gap-4">
       <div className="flex gap-4">
@@ -21,7 +23,7 @@ export function LeftRotate({ files }) {
             height={16}
             alt="Rotate Left Icon"
           />
-          Rotate Left
+          {pdf_tools.extra.left.rotate.left}
         </GlassButton>
         <GlassButton
           onClick={() => {
@@ -38,7 +40,7 @@ export function LeftRotate({ files }) {
             height={16}
             alt="Rotate Right Icon"
           />
-          Rotate Right
+          {pdf_tools.extra.left.rotate.right}
         </GlassButton>
       </div>
       <GlassButton
@@ -49,7 +51,7 @@ export function LeftRotate({ files }) {
           });
         }}
       >
-        Reset Rotation
+        {pdf_tools.extra.left.rotate.reset}
       </GlassButton>
     </div>
   );

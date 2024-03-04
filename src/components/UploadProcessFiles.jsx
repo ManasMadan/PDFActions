@@ -6,6 +6,7 @@ import SortableList, { SortableItem } from "react-easy-sort";
 import { arrayMoveImmutable } from "array-move";
 import GlassButton from "./GlassButton";
 import { useDropzone } from "react-dropzone";
+import { useDictionary } from "@/lib/DictionaryProviderClient";
 
 export default function UploadProcessFiles({ tool }) {
   const config = pdftoolsconfig[tool];
@@ -23,6 +24,7 @@ export default function UploadProcessFiles({ tool }) {
 }
 
 const ProcessFile = ({ files, setFiles, config }) => {
+  const { pdf_tools } = useDictionary();
   const onDrop = useCallback(async (acceptedFiles) => {
     const newFiles = await config.preProcessFiles(acceptedFiles, files.length);
     setFiles((files) => files.concat(newFiles));
@@ -59,13 +61,17 @@ const ProcessFile = ({ files, setFiles, config }) => {
             config.processor(files.filter((file) => !file.deleted))
           }
         >
-          Save and Download
+          {pdf_tools.main.save}
         </GlassButton>
-        {config.multiple && <GlassButton onClick={open}>Add Files</GlassButton>}
+        {config.multiple && (
+          <GlassButton onClick={open}>{pdf_tools.main.add}</GlassButton>
+        )}
         <div className="grow overflow-y-scroll">
           {LeftExtra && <LeftExtra files={files} />}
         </div>
-        <GlassButton onClick={() => setFiles([])}>Delete Files</GlassButton>
+        <GlassButton onClick={() => setFiles([])}>
+          {pdf_tools.main.delete}
+        </GlassButton>
       </div>
 
       {config.reorder ? (

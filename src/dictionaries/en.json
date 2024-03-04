@@ -341,5 +341,21 @@
     "or": "or",
     "browse": "Browse Files",
     "release": "Release Here !"
+  },
+  "pdf_tools": {
+    "main": {
+      "save": "Save and Download",
+      "add": "Add Files",
+      "delete": "Delete all files"
+    },
+    "extra": {
+      "left": {
+        "rotate": {
+          "left": "Rotate left",
+          "right": "Rotate Right",
+          "reset": "Reset Rotation"
+        }
+      }
+    }
   }
 }
