@@ -57,9 +57,7 @@ const pdftoolsconfig = {
         const file = files[i];
         const pdfFile = await createPDF.PDFDocumentFromFile(file);
         let pdfToBeAdded = pdfFile;
-        if (file.degrees) {
-          pdfToBeAdded = await rotatePDF(pdfFile, file.degrees);
-        }
+        if (file.rotate) pdfToBeAdded = await rotatePDF(pdfFile, file.rotate);
         pdfDocs.push(pdfToBeAdded);
       }
       const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
