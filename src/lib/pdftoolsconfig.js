@@ -6,9 +6,9 @@ import {
 } from "@/components/FileComponents.jsx";
 import GlassButton from "@/components/GlassButton.jsx";
 import { LeftRotate } from "@/components/LeftComponents.jsx";
-import { saveAs } from "file-saver";
-import { createPDF, rotatePDF, pdfArrayToBlob, mergePDF } from "pdf-actions";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
+import mergePDFHandler from "./pdf-handlers/mergePDF.js";
+import splitPDFHandler from "./pdf-handlers/splitPDF.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -59,19 +59,7 @@ const pdftoolsconfig = {
     preProcessFiles: preProcessFiles,
     multiple: true,
     reorder: true,
-    processor: async (files) => {
-      const pdfDocs = [];
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const pdfFile = await createPDF.PDFDocumentFromFile(file);
-        let pdfToBeAdded = pdfFile;
-        if (file.rotate) pdfToBeAdded = await rotatePDF(pdfFile, file.rotate);
-        pdfDocs.push(pdfToBeAdded);
-      }
-      const mergedPdfFile = await (await mergePDF(pdfDocs)).save();
-      const pdfBlob = pdfArrayToBlob(mergedPdfFile);
-      saveAs(pdfBlob, "merged.pdf");
-    },
+    processor: (files) => mergePDFHandler(files),
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
       <div className="mx-auto max-w-[80%] flex-col">
@@ -86,8 +74,7 @@ const pdftoolsconfig = {
     preProcessFiles: preProcessFiles,
     multiple: true,
     reorder: true,
-    // TODO
-    processor: async (files) => console.log(files),
+    processor: (files) => splitPDFHandler(files),
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
       <div className="mx-auto max-w-[80%] flex-col">
@@ -98,14 +85,10 @@ const pdftoolsconfig = {
     ),
     LeftExtra: ({ files }) => {
       const { pdf_tools } = useDictionary();
-      // TODO
-      const processorForIndividualFiles = () => {
-        console.log(files);
-      };
 
       return (
         <div className="flex flex-col gap-4">
-          <GlassButton onClick={processorForIndividualFiles}>
+          <GlassButton onClick={() => splitPDFHandler(files, false)}>
             {pdf_tools.main.save_as_individual}
           </GlassButton>
           <LeftRotate files={files} />

@@ -82,12 +82,11 @@ export function FileSplit({ file }) {
   };
 
   useEffect(() => {
-    file.splitRange = [1, file.pageCount];
-
     if (file.pageCount) {
       splitRangeEndRef.current.max = file.pageCount;
       splitRangeEndRef.current.defaultValue = file.pageCount;
       splitRangeStartRef.current.defaultValue = 1;
+      file.splitRange = [1, file.pageCount];
       return;
     }
     async function func() {
@@ -96,6 +95,7 @@ export function FileSplit({ file }) {
       splitRangeEndRef.current.max = file.pageCount;
       splitRangeEndRef.current.defaultValue = file.pageCount;
       splitRangeStartRef.current.defaultValue = 1;
+      file.splitRange = [1, file.pageCount];
     }
     func();
   }, []);

@@ -55,7 +55,7 @@ const ProcessFile = ({ files, setFiles, config }) => {
     <div className="grid h-full grid-cols-1 overflow-y-hidden rounded-lg border-4 border-primary md:grid-cols-5">
       <input {...getInputProps()} />
 
-      <div className="col-span-2 flex flex-col gap-4 overflow-scroll bg-primary p-2 text-white">
+      <div className="col-span-2 flex flex-col gap-4 bg-primary p-2 text-white md:overflow-scroll">
         <GlassButton
           onClick={() =>
             config.processor(files.filter((file) => !file.deleted))

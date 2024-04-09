@@ -6,7 +6,7 @@ export default function GlassButton(props) {
     <button
       {...props}
       className={cn(
-        "w-full rounded-md border-2 border-[#E9B4BF80] bg-[#FFFFFF42] py-3 shadow-sm shadow-[#FFFFFF42] backdrop-blur-sm",
+        "w-full rounded-md border-2 border-[#E9B4BF80] bg-[#FFFFFF42] px-2 py-3 shadow-sm shadow-[#FFFFFF42] backdrop-blur-sm",
         props.className,
       )}
     >
