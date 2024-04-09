@@ -35,4 +35,10 @@ const imageDataURLFromFile = async (file, pageNumber) => {
   return canvas.toDataURL();
 };
 
-export default imageDataURLFromFile;
+const getPDFPageCount = async (file) => {
+  const fileURL = URL.createObjectURL(file);
+  const doc = await getDocument({ url: fileURL }).promise;
+  return doc.numPages;
+};
+
+export { getPDFPageCount, imageDataURLFromFile };

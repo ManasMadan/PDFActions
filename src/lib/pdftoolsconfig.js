@@ -1,10 +1,16 @@
 import CustomImageComponent from "@/components/CustomImageComponent";
-import { FileRotate, FileDelete } from "@/components/FileComponents.jsx";
+import {
+  FileRotate,
+  FileDelete,
+  FileSplit,
+} from "@/components/FileComponents.jsx";
+import GlassButton from "@/components/GlassButton.jsx";
 import { LeftRotate } from "@/components/LeftComponents.jsx";
 import { saveAs } from "file-saver";
 import { createPDF, rotatePDF, pdfArrayToBlob, mergePDF } from "pdf-actions";
+import { useDictionary } from "@/lib/DictionaryProviderClient";
 
-let imageURLFunction;
+let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
   accept: {
     "application/pdf": [".pdf"],
@@ -26,8 +32,9 @@ const doNotAcceptMultipleProps = {
 
 const initialisePDFJS = async () => {
   if (!imageURLFunction)
-    await import("./imageURLFromFile.js").then(async (imageDataURLFromFile) => {
-      imageURLFunction = imageDataURLFromFile.default;
+    await import("./pdfLib.js").then(async (pdfLib) => {
+      imageURLFunction = pdfLib.imageDataURLFromFile;
+      getPDFPageCount = pdfLib.getPDFPageCount;
     });
 };
 
@@ -41,6 +48,7 @@ const preProcessFiles = async (acceptedFiles, startKeyFrom = 0) => {
     file.rotate = 0;
     file.imageRef = null;
     file.deleted = false;
+    file.getPageCount = () => getPDFPageCount(file);
   });
   return acceptedFiles;
 };
@@ -66,12 +74,44 @@ const pdftoolsconfig = {
     },
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
-      <div className="flex-col">
+      <div className="mx-auto max-w-[80%] flex-col">
         <FileRotate file={file} />
         <FileDelete file={file} />
       </div>
     ),
     LeftExtra: ({ files }) => <LeftRotate files={files} />,
+  },
+  split: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: true,
+    // TODO
+    processor: async (files) => console.log(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileSplit file={file} />
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      // TODO
+      const processorForIndividualFiles = () => {
+        console.log(files);
+      };
+
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={processorForIndividualFiles}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
   },
 };
 

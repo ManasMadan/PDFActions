@@ -346,7 +346,8 @@
     "main": {
       "save": "Save and Download",
       "add": "Add Files",
-      "delete": "Delete all files"
+      "delete": "Delete all files",
+      "save_as_individual": "Save and Download as Individual Files"
     },
     "extra": {
       "left": {
