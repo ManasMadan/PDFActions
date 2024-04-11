@@ -16,7 +16,7 @@ function CustomImageComponent({ file }) {
       return;
     }
     async function func() {
-      const res = await file.preview();
+      const res = await file.getImageData();
       file.imageData = res;
       ref.current.src = res;
       ref.current.width = 150;

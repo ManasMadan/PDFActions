@@ -42,13 +42,14 @@ const preProcessFiles = async (acceptedFiles, startKeyFrom = 0) => {
   await initialisePDFJS();
 
   acceptedFiles.forEach((file, index) => {
-    file.preview = () => imageURLFunction(file, 1);
+    file.getImageData = () => imageURLFunction(file, 1);
     file.imageData = null;
     file.key = index + startKeyFrom;
     file.rotate = 0;
     file.imageRef = null;
     file.deleted = false;
     file.getPageCount = () => getPDFPageCount(file);
+    file.pageCount = null;
   });
   return acceptedFiles;
 };
@@ -73,7 +74,7 @@ const pdftoolsconfig = {
     dropZoneProps: acceptPDFFilesProps,
     preProcessFiles: preProcessFiles,
     multiple: true,
-    reorder: true,
+    reorder: false,
     processor: (files) => splitPDFHandler(files),
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: ({ file }) => (
