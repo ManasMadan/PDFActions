@@ -9,6 +9,7 @@ import { LeftRotate } from "@/components/LeftComponents.jsx";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
+import rotatePDFHandler from "./pdf-handlers/rotatePDF.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -90,6 +91,32 @@ const pdftoolsconfig = {
       return (
         <div className="flex flex-col gap-4">
           <GlassButton onClick={() => splitPDFHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
+  },
+  rotate: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => rotatePDFHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => rotatePDFHandler(files, false)}>
             {pdf_tools.main.save_as_individual}
           </GlassButton>
           <LeftRotate files={files} />
