@@ -22,9 +22,9 @@
         "text": "PDF घुमाएं"
       },
       {
-        "icon": "/icons/pdf_tools/image_to_pdf.png",
-        "link": "/pdf-tools/image_to_pdf",
-        "text": "छवि से PDF"
+        "icon": "/icons/pdf_tools/jpg_to_pdf.png",
+        "link": "/pdf-tools/jpg_to_pdf",
+        "text": "JPG से PDF"
       },
       {
         "icon": "/icons/pdf_tools/add_page_number.png",
@@ -262,7 +262,7 @@
       "title": "PDF को घुमाएं",
       "description": "PDF फ़ाइलों में पृष्ठों को घुमाएं"
     },
-    "image_to_pdf": {
+    "jpg_to_pdf": {
       "title": "छवियों को PDF में बदलें",
       "description": "छवियों को PDF दस्तावेज़ में परिवर्तित करें"
     },

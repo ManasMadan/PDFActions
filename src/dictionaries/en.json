@@ -22,9 +22,9 @@
         "text": "Rotate PDF"
       },
       {
-        "icon": "/icons/pdf_tools/image_to_pdf.png",
-        "link": "/pdf-tools/image_to_pdf",
-        "text": "Image to PDF"
+        "icon": "/icons/pdf_tools/jpg_to_pdf.png",
+        "link": "/pdf-tools/jpg_to_pdf",
+        "text": "JPG to PDF"
       },
       {
         "icon": "/icons/pdf_tools/add_page_number.png",
@@ -259,7 +259,7 @@
       "title": "Rotate PDF",
       "description": "Rotate Pages in PDF Files"
     },
-    "image_to_pdf": {
+    "jpg_to_pdf": {
       "title": "Image to PDF",
       "description": "Convert Images into PDF Documents"
     },
