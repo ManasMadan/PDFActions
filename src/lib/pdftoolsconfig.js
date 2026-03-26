@@ -10,6 +10,8 @@ import { LeftRotate } from "@/components/LeftComponents.jsx";
 import LeftResizeImage from "@/components/LeftResizeImage.jsx";
 import LeftImageMargin from "@/components/LeftImageMargin.jsx";
 import LeftBreakPDF from "@/components/LeftBreakPDF.jsx";
+import LeftPageNumbers from "@/components/LeftPageNumbers.jsx";
+import LeftEditMetaData from "@/components/LeftEditMetaData.jsx";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
@@ -18,6 +20,8 @@ import imagesToPDFHandler from "./pdf-handlers/imagesToPDF.js";
 import flattenFormHandler from "./pdf-handlers/flattenForm.js";
 import removeMetaDataHandler from "./pdf-handlers/removeMetaData.js";
 import breakPDFHandler from "./pdf-handlers/breakPDF.js";
+import addPageNumbersHandler from "./pdf-handlers/addPageNumbers.js";
+import editMetaDataHandler from "./pdf-handlers/editMetaData.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -184,6 +188,16 @@ const pdftoolsconfig = {
       </div>
     ),
   },
+  add_page_number: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFilesWithPageCount,
+    multiple: false,
+    reorder: false,
+    processor: (files) => addPageNumbersHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: ({ files }) => <LeftPageNumbers file={files[0]} />,
+  },
   break_pdf: {
     dropZoneProps: acceptPDFFilesProps,
     preProcessFiles: preProcessFilesWithPageCount,
@@ -233,6 +247,16 @@ const pdftoolsconfig = {
         </div>
       );
     },
+  },
+  edit_metadata: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: false,
+    reorder: false,
+    processor: (files) => editMetaDataHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: ({ files }) => <LeftEditMetaData file={files[0]} />,
   },
   remove_metadata: {
     dropZoneProps: acceptPDFFilesProps,
