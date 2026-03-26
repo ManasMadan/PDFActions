@@ -26,6 +26,8 @@ import addPageNumbersHandler from "./pdf-handlers/addPageNumbers.js";
 import editMetaDataHandler from "./pdf-handlers/editMetaData.js";
 import resizePDFHandler from "./pdf-handlers/resizePDF.js";
 import addMarginHandler from "./pdf-handlers/addMargin.js";
+import htmlToPDFHandler from "./pdf-handlers/htmlToPDF.js";
+import HTMLPreviewComponent from "@/components/HTMLPreviewComponent.jsx";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -45,7 +47,7 @@ const acceptImageFilesProps = {
 };
 const acceptHTMLFilesProps = {
   accept: {
-    "application/html": [".html"],
+    "text/html": [".html", ".htm"],
   },
 };
 const doNotAcceptMultipleProps = {
@@ -97,6 +99,20 @@ const preProcessFilesWithPageCount = async (acceptedFiles, startKeyFrom = 0) => 
     file.pageCount = await getPDFPageCount(file);
   }
   return files;
+};
+
+const preProcessHTMLFiles = async (acceptedFiles, startKeyFrom = 0) => {
+  acceptedFiles.forEach((file, index) => {
+    file.key = index + startKeyFrom;
+    file.rotate = 0;
+    file.imageRef = null;
+    file.deleted = false;
+    file.imageData = null;
+    file.getImageData = () => Promise.resolve(null);
+    file.pageCount = null;
+    file.getPageCount = () => Promise.resolve(1);
+  });
+  return acceptedFiles;
 };
 
 const pdftoolsconfig = {
@@ -321,6 +337,16 @@ const pdftoolsconfig = {
     reorder: false,
     processor: (files) => removeMetaDataHandler(files),
     Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: null,
+  },
+  html_to_pdf: {
+    dropZoneProps: acceptHTMLFilesProps,
+    preProcessFiles: preProcessHTMLFiles,
+    multiple: false,
+    reorder: false,
+    processor: (files) => htmlToPDFHandler(files),
+    Preview: ({ file }) => <HTMLPreviewComponent file={file} />,
     FileExtra: null,
     LeftExtra: null,
   },
