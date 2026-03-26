@@ -12,6 +12,8 @@ import LeftImageMargin from "@/components/LeftImageMargin.jsx";
 import LeftBreakPDF from "@/components/LeftBreakPDF.jsx";
 import LeftPageNumbers from "@/components/LeftPageNumbers.jsx";
 import LeftEditMetaData from "@/components/LeftEditMetaData.jsx";
+import LeftResizePDF from "@/components/LeftResizePDF.jsx";
+import LeftMargin from "@/components/LeftMargin.jsx";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
@@ -22,6 +24,8 @@ import removeMetaDataHandler from "./pdf-handlers/removeMetaData.js";
 import breakPDFHandler from "./pdf-handlers/breakPDF.js";
 import addPageNumbersHandler from "./pdf-handlers/addPageNumbers.js";
 import editMetaDataHandler from "./pdf-handlers/editMetaData.js";
+import resizePDFHandler from "./pdf-handlers/resizePDF.js";
+import addMarginHandler from "./pdf-handlers/addMargin.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -197,6 +201,58 @@ const pdftoolsconfig = {
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: null,
     LeftExtra: ({ files }) => <LeftPageNumbers file={files[0]} />,
+  },
+  resize: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => resizePDFHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => resizePDFHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftResizePDF />
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
+  },
+  add_margin: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => addMarginHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => addMarginHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftMargin files={files} />
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
   },
   break_pdf: {
     dropZoneProps: acceptPDFFilesProps,
