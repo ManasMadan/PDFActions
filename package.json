@@ -18,6 +18,7 @@
     "negotiator": "^0.6.3",
     "next": "14.0.4",
     "pdf-actions": "^1.2.2",
+    "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^4.0.379",
     "react": "^18",
     "react-dom": "^18",

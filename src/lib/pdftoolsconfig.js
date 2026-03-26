@@ -14,6 +14,7 @@ import LeftPageNumbers from "@/components/LeftPageNumbers.jsx";
 import LeftEditMetaData from "@/components/LeftEditMetaData.jsx";
 import LeftResizePDF from "@/components/LeftResizePDF.jsx";
 import LeftMargin from "@/components/LeftMargin.jsx";
+import LeftWatermark from "@/components/LeftWatermark.jsx";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
@@ -26,6 +27,7 @@ import addPageNumbersHandler from "./pdf-handlers/addPageNumbers.js";
 import editMetaDataHandler from "./pdf-handlers/editMetaData.js";
 import resizePDFHandler from "./pdf-handlers/resizePDF.js";
 import addMarginHandler from "./pdf-handlers/addMargin.js";
+import watermarkHandler from "./pdf-handlers/watermark.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -323,6 +325,32 @@ const pdftoolsconfig = {
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: null,
     LeftExtra: null,
+  },
+  watermark: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => watermarkHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => watermarkHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftWatermark />
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
   },
 };
 

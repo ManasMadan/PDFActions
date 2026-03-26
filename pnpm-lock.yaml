@@ -22,7 +22,7 @@ importers:
         version: 2.0.5
       framer-motion:
         specifier: ^10.17.9
-        version: 10.18.0(react-dom@18.2.0)(react@18.2.0)
+        version: 10.18.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       jszip:
         specifier: ^3.10.1
         version: 3.10.1
@@ -31,10 +31,13 @@ importers:
         version: 0.6.3
       next:
         specifier: 14.0.4
-        version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
+        version: 14.0.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       pdf-actions:
         specifier: ^1.2.2
         version: 1.2.2
+      pdf-lib:
+        specifier: ^1.17.1
+        version: 1.17.1
       pdfjs-dist:
         specifier: ^4.0.379
         version: 4.0.379
@@ -49,7 +52,7 @@ importers:
         version: 14.2.3(react@18.2.0)
       react-easy-sort:
         specifier: ^1.6.0
-        version: 1.6.0(react-dom@18.2.0)(react@18.2.0)
+        version: 1.6.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       sharp:
         specifier: ^0.33.1
         version: 0.33.1
@@ -1602,13 +1605,13 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
-  framer-motion@10.18.0(react-dom@18.2.0)(react@18.2.0):
+  framer-motion@10.18.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   fs-minipass@2.1.0:
     dependencies:
@@ -1811,7 +1814,7 @@ snapshots:
 
   negotiator@0.6.3: {}
 
-  next@14.0.4(react-dom@18.2.0)(react@18.2.0):
+  next@14.0.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@next/env': 14.0.4
       '@swc/helpers': 0.5.2
@@ -1929,8 +1932,9 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.32):
     dependencies:
       lilconfig: 3.0.0
-      postcss: 8.4.32
       yaml: 2.3.4
+    optionalDependencies:
+      postcss: 8.4.32
 
   postcss-nested@6.0.1(postcss@8.4.32):
     dependencies:
@@ -1985,7 +1989,7 @@ snapshots:
       prop-types: 15.8.1
       react: 18.2.0
 
-  react-easy-sort@1.6.0(react-dom@18.2.0)(react@18.2.0):
+  react-easy-sort@1.6.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       array-move: 3.0.1
       react: 18.2.0
