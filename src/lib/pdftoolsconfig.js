@@ -26,6 +26,8 @@ import addPageNumbersHandler from "./pdf-handlers/addPageNumbers.js";
 import editMetaDataHandler from "./pdf-handlers/editMetaData.js";
 import resizePDFHandler from "./pdf-handlers/resizePDF.js";
 import addMarginHandler from "./pdf-handlers/addMargin.js";
+import compressHandler from "./pdf-handlers/compress.js";
+import extractImagesHandler from "./pdf-handlers/extractImages.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -320,6 +322,37 @@ const pdftoolsconfig = {
     multiple: false,
     reorder: false,
     processor: (files) => removeMetaDataHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: null,
+  },
+  compress: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => compressHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <GlassButton onClick={() => compressHandler(files, false)}>
+          {pdf_tools.main.save_as_individual}
+        </GlassButton>
+      );
+    },
+  },
+  extract_images: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: false,
+    reorder: false,
+    processor: (files) => extractImagesHandler(files),
     Preview: ({ file }) => <CustomImageComponent file={file} />,
     FileExtra: null,
     LeftExtra: null,
