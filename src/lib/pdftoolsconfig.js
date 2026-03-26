@@ -9,6 +9,7 @@ import GlassButton from "@/components/GlassButton.jsx";
 import { LeftRotate } from "@/components/LeftComponents.jsx";
 import LeftResizeImage from "@/components/LeftResizeImage.jsx";
 import LeftImageMargin from "@/components/LeftImageMargin.jsx";
+import LeftBreakPDF from "@/components/LeftBreakPDF.jsx";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
@@ -16,6 +17,7 @@ import rotatePDFHandler from "./pdf-handlers/rotatePDF.js";
 import imagesToPDFHandler from "./pdf-handlers/imagesToPDF.js";
 import flattenFormHandler from "./pdf-handlers/flattenForm.js";
 import removeMetaDataHandler from "./pdf-handlers/removeMetaData.js";
+import breakPDFHandler from "./pdf-handlers/breakPDF.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -79,6 +81,14 @@ const preProcessImages = async (acceptedFiles, startKeyFrom = 0) => {
     file.deleted = false;
   }
   return acceptedFiles;
+};
+
+const preProcessFilesWithPageCount = async (acceptedFiles, startKeyFrom = 0) => {
+  const files = await preProcessFiles(acceptedFiles, startKeyFrom);
+  for (const file of files) {
+    file.pageCount = await getPDFPageCount(file);
+  }
+  return files;
 };
 
 const pdftoolsconfig = {
@@ -173,6 +183,31 @@ const pdftoolsconfig = {
         <LeftRotate files={files} />
       </div>
     ),
+  },
+  break_pdf: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFilesWithPageCount,
+    multiple: false,
+    reorder: false,
+    processor: (files) => breakPDFHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => breakPDFHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftBreakPDF file={files[0]} />
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
   },
   flatten_forms: {
     dropZoneProps: acceptPDFFilesProps,
