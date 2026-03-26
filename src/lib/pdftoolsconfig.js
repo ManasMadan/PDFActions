@@ -1,4 +1,5 @@
 import CustomImageComponent from "@/components/CustomImageComponent";
+import ImagePreviewComponent from "@/components/ImagePreviewComponent.jsx";
 import {
   FileRotate,
   FileDelete,
@@ -6,10 +7,13 @@ import {
 } from "@/components/FileComponents.jsx";
 import GlassButton from "@/components/GlassButton.jsx";
 import { LeftRotate } from "@/components/LeftComponents.jsx";
+import LeftResizeImage from "@/components/LeftResizeImage.jsx";
+import LeftImageMargin from "@/components/LeftImageMargin.jsx";
 import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
 import rotatePDFHandler from "./pdf-handlers/rotatePDF.js";
+import imagesToPDFHandler from "./pdf-handlers/imagesToPDF.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -20,6 +24,11 @@ const acceptPDFFilesProps = {
 const acceptJPEGFilesProps = {
   accept: {
     "image/jpeg": [],
+  },
+};
+const acceptImageFilesProps = {
+  accept: {
+    "image/*": [],
   },
 };
 const acceptHTMLFilesProps = {
@@ -52,6 +61,21 @@ const preProcessFiles = async (acceptedFiles, startKeyFrom = 0) => {
     file.getPageCount = () => getPDFPageCount(file);
     file.pageCount = null;
   });
+  return acceptedFiles;
+};
+
+const preProcessImages = async (acceptedFiles, startKeyFrom = 0) => {
+  for (let i = 0; i < acceptedFiles.length; i++) {
+    const file = acceptedFiles[i];
+    const imageURL = URL.createObjectURL(file);
+    const imageBytes = await fetch(imageURL).then((res) => res.arrayBuffer());
+    file.src = imageBytes;
+    file.imageDataURL = imageURL;
+    file.key = i + startKeyFrom;
+    file.rotate = 0;
+    file.imageRef = null;
+    file.deleted = false;
+  }
   return acceptedFiles;
 };
 
@@ -123,6 +147,30 @@ const pdftoolsconfig = {
         </div>
       );
     },
+  },
+  jpg_to_pdf: {
+    dropZoneProps: acceptImageFilesProps,
+    preProcessFiles: preProcessImages,
+    multiple: true,
+    reorder: true,
+    processor: (files) => imagesToPDFHandler(files),
+    Preview: ({ file }) => <ImagePreviewComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => (
+      <div className="flex flex-col gap-4">
+        <GlassButton onClick={() => imagesToPDFHandler(files, true)}>
+          Save as Merged File
+        </GlassButton>
+        <LeftResizeImage />
+        <LeftImageMargin files={files} />
+        <LeftRotate files={files} />
+      </div>
+    ),
   },
 };
 
