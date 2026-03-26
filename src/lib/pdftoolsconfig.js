@@ -10,6 +10,10 @@ import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
 import rotatePDFHandler from "./pdf-handlers/rotatePDF.js";
+import addPageNumbersHandler from "./pdf-handlers/addPageNumbers.js";
+import editMetaDataHandler from "./pdf-handlers/editMetaData.js";
+import LeftPageNumbers from "@/components/LeftPageNumbers.jsx";
+import LeftEditMetaData from "@/components/LeftEditMetaData.jsx";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -52,6 +56,17 @@ const preProcessFiles = async (acceptedFiles, startKeyFrom = 0) => {
     file.getPageCount = () => getPDFPageCount(file);
     file.pageCount = null;
   });
+  return acceptedFiles;
+};
+
+const preProcessFilesWithPageCount = async (
+  acceptedFiles,
+  startKeyFrom = 0,
+) => {
+  await preProcessFiles(acceptedFiles, startKeyFrom);
+  for (const file of acceptedFiles) {
+    file.pageCount = await getPDFPageCount(file);
+  }
   return acceptedFiles;
 };
 
@@ -123,6 +138,26 @@ const pdftoolsconfig = {
         </div>
       );
     },
+  },
+  add_page_number: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFilesWithPageCount,
+    multiple: false,
+    reorder: false,
+    processor: (files) => addPageNumbersHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: ({ files }) => <LeftPageNumbers file={files[0]} />,
+  },
+  edit_metadata: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: false,
+    reorder: false,
+    processor: (files) => editMetaDataHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: ({ files }) => <LeftEditMetaData file={files[0]} />,
   },
 };
 
