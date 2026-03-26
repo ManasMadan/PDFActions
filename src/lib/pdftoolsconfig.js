@@ -61,7 +61,7 @@ const acceptImageFilesProps = {
 };
 const acceptHTMLFilesProps = {
   accept: {
-    "application/html": [".html"],
+    "text/html": [".html", ".htm"],
   },
 };
 const doNotAcceptMultipleProps = {
