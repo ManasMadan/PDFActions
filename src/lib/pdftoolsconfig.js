@@ -14,6 +14,8 @@ import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
 import rotatePDFHandler from "./pdf-handlers/rotatePDF.js";
 import imagesToPDFHandler from "./pdf-handlers/imagesToPDF.js";
+import flattenFormHandler from "./pdf-handlers/flattenForm.js";
+import removeMetaDataHandler from "./pdf-handlers/removeMetaData.js";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -171,6 +173,41 @@ const pdftoolsconfig = {
         <LeftRotate files={files} />
       </div>
     ),
+  },
+  flatten_forms: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => flattenFormHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => flattenFormHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
+  },
+  remove_metadata: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: false,
+    reorder: false,
+    processor: (files) => removeMetaDataHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: null,
+    LeftExtra: null,
   },
 };
 
