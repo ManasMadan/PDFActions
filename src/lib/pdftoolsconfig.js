@@ -10,6 +10,10 @@ import { useDictionary } from "@/lib/DictionaryProviderClient";
 import mergePDFHandler from "./pdf-handlers/mergePDF.js";
 import splitPDFHandler from "./pdf-handlers/splitPDF.js";
 import rotatePDFHandler from "./pdf-handlers/rotatePDF.js";
+import resizePDFHandler from "./pdf-handlers/resizePDF.js";
+import addMarginHandler from "./pdf-handlers/addMargin.js";
+import LeftResizePDF from "@/components/LeftResizePDF.jsx";
+import LeftMargin from "@/components/LeftMargin.jsx";
 
 let imageURLFunction, getPDFPageCount;
 const acceptPDFFilesProps = {
@@ -119,6 +123,58 @@ const pdftoolsconfig = {
           <GlassButton onClick={() => rotatePDFHandler(files, false)}>
             {pdf_tools.main.save_as_individual}
           </GlassButton>
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
+  },
+  resize: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => resizePDFHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => resizePDFHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftResizePDF />
+          <LeftRotate files={files} />
+        </div>
+      );
+    },
+  },
+  add_margin: {
+    dropZoneProps: acceptPDFFilesProps,
+    preProcessFiles: preProcessFiles,
+    multiple: true,
+    reorder: false,
+    processor: (files) => addMarginHandler(files),
+    Preview: ({ file }) => <CustomImageComponent file={file} />,
+    FileExtra: ({ file }) => (
+      <div className="mx-auto max-w-[80%] flex-col">
+        <FileRotate file={file} />
+        <FileDelete file={file} />
+      </div>
+    ),
+    LeftExtra: ({ files }) => {
+      const { pdf_tools } = useDictionary();
+      return (
+        <div className="flex flex-col gap-4">
+          <GlassButton onClick={() => addMarginHandler(files, false)}>
+            {pdf_tools.main.save_as_individual}
+          </GlassButton>
+          <LeftMargin files={files} />
           <LeftRotate files={files} />
         </div>
       );
